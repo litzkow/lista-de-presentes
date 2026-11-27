@@ -438,7 +438,7 @@ const openApp=()=>{guia.innerHTML=`<div class="gbody">${instHTML()}</div><div cl
   if(!guia.open)guia.showModal();guia.scrollTop=0};
 const hideBan=()=>{try{localStorage.setItem('lp-ban-'+EU,'1')}catch(e){}const x=document.getElementById('appban');if(x)x.remove()};
 if(EU){let seen=null;try{seen=localStorage.getItem('lp-guia-'+EU+(isApp()?'-app':''))}catch(e){}
-  if(!seen)setTimeout(()=>openGuia(0),400);
+  if(!seen&&!isApp())setTimeout(()=>openGuia(0),400);
   const h=document.getElementById('eu');h.insertAdjacentHTML('beforeend',` · <button type="button" id="ajuda">Como funciona?</button>${canApp()?` · <button type="button" id="ajapp">Usar como app</button>`:''}`);
   document.getElementById('ajuda').onclick=()=>openGuia(0);const aa=document.getElementById('ajapp');if(aa)aa.onclick=openApp;
   let banSeen=null;try{banSeen=localStorage.getItem('lp-ban-'+EU)}catch(e){}
