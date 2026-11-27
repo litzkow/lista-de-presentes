@@ -58,6 +58,31 @@ footer{margin-top:64px;background:var(--pine);color:#e9e2cf;font-size:14px;posit
 footer .wrap{padding-top:36px;padding-bottom:40px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
 footer b{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:30px;color:#fbf6ea}
 footer .garland{position:absolute;top:-17px;left:0;right:0;margin:0}
+
+nav a[aria-selected=true]{background:var(--pine);color:#fff;border-color:var(--pine)}
+nav a[aria-selected=true] span{color:#cfe3d6}
+.who{padding:36px 0 0;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px}
+.who h2{font-size:clamp(38px,4.6vw,54px);color:var(--ink)}
+.note{display:inline-flex;gap:8px;align-items:center;background:var(--red);color:#fff;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px}
+.note.soft{background:#fff;color:var(--pine);box-shadow:0 0 0 1px var(--line)}
+.tile{width:100%;height:100%;border-radius:10px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:18px;color:#fbf6ea;font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:clamp(24px,2.4vw,30px);line-height:1.05;background:radial-gradient(circle at 80% 15%,rgba(255,255,255,.14) 0,transparent 45%),var(--pine)}
+.tile.red{background:radial-gradient(circle at 80% 15%,rgba(255,255,255,.16) 0,transparent 45%),var(--red)}
+.tile.gold{background:radial-gradient(circle at 80% 15%,rgba(255,255,255,.25) 0,transparent 45%),#a8853f}
+.tile small{font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:12px;font-weight:700;opacity:.85}
+.ph:has(.tile){padding:0}
+a.ph{text-decoration:none}
+.tip{font-size:14px;color:var(--ink);margin:6px 0 0;line-height:1.45}
+.tip b{color:var(--pine)}
+.btns{margin-top:auto;padding-top:14px;display:grid;gap:8px}
+.btns a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border-radius:12px;background:var(--pine);color:#fff;font-weight:700;font-size:15px;text-decoration:none;transition:background .2s;text-align:center;padding:0 10px}
+.btns a:hover{background:var(--red)}
+.btns a.alt{background:#fff;color:var(--pine);box-shadow:inset 0 0 0 1.5px var(--pine)}
+.btns a.alt:hover{background:var(--pine);color:#fff}
+.btns a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.pending{margin-top:auto;padding-top:12px;font-size:13px;color:var(--soft)}
+.ph:has(img.ilus){padding:0}
+.ph img.ilus{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;mix-blend-mode:normal}
+[hidden]{display:none!important}
 @media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.orn{order:-1;max-width:260px;justify-self:end;margin-top:-28px;margin-bottom:-36px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px}.card{padding:8px 8px 10px;border-radius:14px}.ph{padding:10px}.name{font-size:15px}.btn span{font-size:14px}.badge{font-size:12px;top:8px;right:8px}}
 @media(prefers-reduced-motion:no-preference){.bob{transform-origin:50% 0;animation:sway 5s ease-in-out infinite}.bob:nth-of-type(2){animation-delay:-1.6s}.bob:nth-of-type(3){animation-delay:-3.1s}.bob:nth-of-type(4){animation-delay:-.8s}@keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}}
@@ -69,8 +94,7 @@ footer .garland{position:absolute;top:-17px;left:0;right:0;margin:0}
   <div class="wrap">
     <div>
       <p class="kicker">Feliz Natal</p>
-      <h1>Lista de presentes do Thiago</h1>
-      <div class="size"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3a4 4 0 0 1-8 0z"/></svg>Roupas e casacos: sempre tamanho Large</div>
+      <h1>Lista de presentes da família</h1>
     </div>
     <div class="orn" aria-hidden="true">
       <svg viewBox="0 0 420 300">
@@ -89,67 +113,115 @@ footer .garland{position:absolute;top:-17px;left:0;right:0;margin:0}
   </div>
 </header>
 <div class="garland" aria-hidden="true"></div>
-<nav aria-label="Categorias"><div class="wrap" id="nav"></div></nav>
+<nav aria-label="Pessoas"><div class="wrap" id="nav" role="tablist"></div></nav>
 <main class="wrap" id="lista"></main>
-<footer><div class="garland" aria-hidden="true"></div><div class="wrap"><b>Feliz Natal e obrigado!</b><span>Com carinho, Thiago</span></div></footer>
+<footer><div class="garland" aria-hidden="true"></div><div class="wrap"><b>Feliz Natal e obrigado!</b><span>Com carinho, da família</span></div></footer>
 <script>
 {
-const amz=q=>'https://www.amazon.com/s?k='+encodeURIComponent(q);
-const secs=[
- {id:'roupas',t:'Roupas',items:[
-  {img:'conjunto-linho',u:'https://a.co/d/08uTirHl',b:'Linho',n:'Conjunto camisa manga curta e calça',c:'Cor: Brown (marrom)',L:1,p:37.94,o:46.99,q:'men 2 piece linen set short sleeve button down shirt drawstring pants brown'},
-  {img:'camisa-listrada',u:'https://a.co/d/08y5EYgW',b:'COOFANDY',n:'Camisa de tricô listrada',c:'Cor: Khaki White',L:1,q:'COOFANDY Mens Knit Button Down Shirts Short Sleeve Polo Shirt Vintage Striped Casual Shirts'},
-  {img:'camisa-trancada',u:'https://a.co/d/0hI6liYa',b:'COOFANDY',n:'Camisa de tricô trançado',c:'Cor: marrom caramelo',L:1,q:'COOFANDY Mens Knit Short Sleeve Shirts Button Down Summer Polo Shirt Cable Knit Textured'},
-  {img:'camisa-veludo',u:'https://a.co/d/06Vb24Li',b:'Cotrasen',n:'Camisa de veludo cotelê manga longa',c:'Cor: bege claro',L:1,q:'Cotrasen Mens Button Down Shirt Long Sleeve Casual Corduroy Shirt'},
-  {img:'jaqueta-veludo',u:'https://a.co/d/0gY24CQc',b:'Veludo cotelê',n:'Jaqueta trucker com botão de pressão',c:'Cor: bege claro',L:1,q:'Mens Corduroy Trucker Jacket with Snap Front and Four Pockets'}
+const az=u=>[{t:'Comprar na Amazon',u}];
+const people=[
+ {id:'gabriela',name:'Gabriela',secs:[]},
+ {id:'karina',name:'Karina',note:'Sandália: tamanho 6 nos EUA, 35/36 no Brasil',secs:[
+  {t:'Calçados',items:[
+   {img:'ka-melissa',b:'Melissa',n:'Free Platform Thong',c:'Cor: Bronze (marrom)',links:[{t:'Comprar nos EUA, tamanho 6',u:'https://www.shopmelissa.com/products/free-platform-thong-36088-be885'},{t:'Comprar no Brasil, 35/36',u:'https://www.melissa.com.br/p/melissa-free-platform-thong/36088?variantName=gren_color&variantValue=Bronze',alt:1}]}
+  ]},
+  {t:'Itens cozy',items:[
+   {img:'ka-faixas',b:'Yoga',n:'Faixas de cabelo de tecido',c:'Cores neutras',links:az('https://a.co/d/038sf8ou')}
+  ]}
  ]},
- {id:'bones',t:'Bonés',items:[
-  {img:'bone-bege',u:'https://a.co/d/0bU3Avw8',b:'Croogo',n:'Boné de veludo aba curta',c:'Cor: bege',q:'Croogo Corduroy Short Brim Hat Low Profile 5 Panel Dad Cap'},
-  {img:'bone-patchwork',u:'https://www.amazon.com/dp/B0CHRPCWSR',b:'Croogo',n:'Boné vintage de veludo, 5 painéis',c:'Cor: azul, marrom e verde',q:'Croogo Short Brim Hat Vintage Corduroy 5 Panel Hat'},
-  {img:'bone-colorido',u:'https://a.co/d/04qK4JGj',b:'Clakllie',n:'Boné de veludo colorido, 5 painéis',c:'Cor: Blue (azul, terracota e amarelo)',q:'Clakllie 5 Panel Corduroy Hat Vintage Flat Brim WBDBH24081-Blue'}
+ {id:'maria-clara',name:'Maria Clara',secs:[
+  {t:'Skincare',items:[
+   {img:'mc-althea',b:'Dr.Althea',n:'Creme 345 Relief Cream',c:'Hidratante para pele sensível',links:az('https://a.co/d/0b2LBvKe')},
+   {img:'mc-purito',b:'Purito',n:'Oat In Calming Gel Cream',c:'Gel creme calmante, 100 ml',links:az('https://a.co/d/0fp9gmdr')}
+  ]},
+  {t:'Casa e viagem',items:[
+   {img:'mc-kitsch',b:'Kitsch',n:'Fronhas de cetim (kit com 2)',c:'Cor: branca',links:az('https://a.co/d/06n2AF1H')},
+   {img:'mc-relavel',b:'Relavel',n:'Necessaire de pendurar',c:'Estampa floral azul',links:az('https://a.co/d/04fA87Cz')}
+  ]},
+  {t:'Roupas',items:[
+   {img:'mc-legging',b:'Gymshark',n:'Everyday Seamless Flared Leggings',c:'Cor: Espresso Brown (marrom)',links:[{t:'Comprar na Gymshark',u:'https://www.gymshark.com/products/gymshark-everyday-seamless-flared-leggings-leggings-brown-aw26'}]}
+  ]},
+  {t:'Para montar',items:[
+   {img:'mc-rolife',b:'Rolife',n:'Book nook Fall into Wonder (kit para montar)',c:'Decoração de estante com luz',links:[{t:'Comprar na Michaels',u:'https://www.michaels.com/product/rolife-fall-into-wonder-diy-book-nook-shelf-insert-kit-10782109'}]}
+  ]}
  ]},
- {id:'acessorios',t:'Acessórios',items:[
-  {img:'bellroy',u:'https://www.amazon.com/dp/B0CY1JJWN3',b:'Bellroy',n:'Pochete transversal Lite Belt Bag',c:'Cor: Ash',q:'Bellroy Lite Belt Bag Versatile Crossbody Sling Ash'},
-  {img:'owala',u:'https://www.amazon.com/dp/B0HGGX4RYW',b:'Owala',n:'Garrafa térmica FreeSip Sway 30 oz Harry Potter',c:'Estampa: Harry Potter Vignettes',q:'Owala FreeSip Sway Stainless Steel Water Bottle 30oz Harry Potter Vignettes'}
+ {id:'pedro',name:'Pedro',note:'O Pedro mandou ideias. Abaixo, sugestões de como presentear cada uma',soft:1,secs:[
+  {t:'Experiências',items:[
+   {img:'pe-vacas.svg',b:'Passeio',n:'Entrada para uma fazenda de fazer carinho em vacas',tip:'Procure por <b>cow cuddling</b>: fazendas que fazem sessões de carinho e abraço em vacas. Dá para dar de presente a entrada ou um vale.',pending:'Link: falta saber a cidade do Pedro'},
+   {img:'pe-mergulho.svg',b:'Aula',n:'Aula de mergulho',tip:'Para quem nunca mergulhou, a aula de experiência (<b>Discover Scuba</b>, da PADI) é o melhor presente. Escolas de mergulho vendem como vale-presente.',pending:'Link: falta saber a cidade do Pedro'},
+   {img:'pe-hipismo.svg',b:'Aula',n:'Aula de hipismo',tip:'Haras e escolas de equitação vendem <b>aula experimental</b> ou pacote de aulas para iniciantes.',pending:'Link: falta saber a cidade do Pedro'},
+   {img:'pe-piano.svg',b:'Aula',n:'Aula de piano ou teclado',tip:'O Pedro já tem uma professora: <b>Rachel Molina</b>, telefone <b style="white-space:nowrap">(973) 487-6791</b>. Dá para presentear um pacote de aulas com ela.',links:[{t:'Ligar para a Rachel',u:'tel:+19734876791'},{t:'Mandar mensagem',u:'sms:+19734876791',alt:1}]}
+  ]},
+  {t:'Coisas',items:[
+   {img:'pe-camisetas.svg',b:'Amazon Essentials',n:'Kit de camisetas básicas, sem estampa',c:'Cores: preta, azul-marinho, verde-escuro',tip:'Pacote com 2 camisetas lisas, com várias cores para escolher.',pending:'Tamanho: falta confirmar com o Pedro',links:az('https://www.amazon.com/dp/B0B2RF64YD')},
+   {img:'pe-lagarto.svg',b:'Pet',n:'Acessórios para terrário de lagarto',tip:'Boas ideias: <b>lâmpada UVB</b>, <b>termômetro e higrômetro</b> digital, <b>esconderijo</b> (toca) e <b>galhos para escalar</b>. O certo depende da espécie do lagarto.',links:[{t:'Ver opções na Amazon',u:'https://www.amazon.com/s?k=reptile+terrarium+accessories+lizard'}]}
+  ]}
  ]},
- {id:'casa',t:'Para ficar quentinho',items:[
-  {img:'coberta-raposa',u:'https://www.amazon.com/dp/B0HC6CD3CT',b:'Mewaii',n:'Coberta de vestir de raposa',c:'Cor: laranja',q:'Mewaii Fox Blanket Cute Animal Wearable Blanket'},
-  {img:'mapa-maroto',u:'https://www.amazon.com/dp/B09C2SJC1W',b:'Harry Potter',n:'Manta Mapa do Maroto',c:'Tamanho: 127 × 152 cm',q:'Harry Potter Marauders Map Silky Touch Super Soft Throw Blanket 50x60'}
- ]},
- {id:'livros',t:'Livros e jogos',items:[
-  {img:'livro-hp',u:'https://www.amazon.com/dp/1408845644',b:'Harry Potter',n:'A Pedra Filosofal, edição ilustrada por Jim Kay',c:'Capa dura, em inglês',p:37.74,q:'Harry Potter and the Philosophers Stone Illustrated Edition Jim Kay hardcover'},
-  {img:'root',u:'https://www.amazon.com/dp/B07F454YF3',b:'Leder Games',n:'Root: A Game of Woodland Might and Right',c:'Jogo base',p:33.60,o:60,q:'Root A Game of Woodland Might and Right Leder Games base game'},
-  {img:'everdell',u:'https://www.amazon.com/dp/B09ZWQTTNR',b:'Starling Games',n:'Everdell',k:'Versão',c:'Standard Edition',q:'Everdell Standard Edition'},
-  {img:'harmonies',u:'https://www.amazon.com/dp/B0CVNPHPZY',b:'Libellud',n:'Harmonies',k:'Versão',c:'Jogo base',q:'Asmodee Harmonies Board Game'},
-  {img:'splendor',u:'https://www.amazon.com/dp/B00IZEUFIA',b:'Space Cowboys',n:'Splendor',k:'Versão',c:'Jogo base',q:'Asmodee Splendor Board Game'},
-  {img:'heat',u:'https://www.amazon.com/dp/B0BGXPZG4B',b:'Days of Wonder',n:'HEAT: Pedal to the Metal',k:'Versão',c:'Jogo base',q:'Asmodee HEAT Pedal to the Metal Board Game'},
-  {img:'calico',u:'https://www.amazon.com/dp/B08B53WGWX',b:'AEG',n:'Calico',k:'Versão',c:'Jogo base',q:'Calico board game AEG'},
-  {img:'agricola',u:'https://www.amazon.com/dp/B07JZFN8WS',b:'Lookout Games',n:'Agricola',k:'Versão',c:'Revised Edition',q:'Lookout Games Agricola Revised Edition'}
+ {id:'thiago',name:'Thiago',note:'Roupas e casacos: sempre tamanho Large',secs:[
+  {t:'Roupas',items:[
+   {img:'conjunto-linho',b:'Linho',n:'Conjunto camisa manga curta e calça',c:'Cor: Brown (marrom)',L:1,links:az('https://a.co/d/08uTirHl')},
+   {img:'camisa-listrada',b:'COOFANDY',n:'Camisa de tricô listrada',c:'Cor: Khaki White',L:1,links:az('https://a.co/d/08y5EYgW')},
+   {img:'camisa-trancada',b:'COOFANDY',n:'Camisa de tricô trançado',c:'Cor: marrom caramelo',L:1,links:az('https://a.co/d/0hI6liYa')},
+   {img:'camisa-veludo',b:'Cotrasen',n:'Camisa de veludo cotelê manga longa',c:'Cor: bege claro',L:1,links:az('https://a.co/d/06Vb24Li')},
+   {img:'jaqueta-veludo',b:'Veludo cotelê',n:'Jaqueta trucker com botão de pressão',c:'Cor: bege claro',L:1,links:az('https://a.co/d/0gY24CQc')}
+  ]},
+  {t:'Bonés',items:[
+   {img:'bone-bege',b:'Croogo',n:'Boné de veludo aba curta',c:'Cor: bege',links:az('https://a.co/d/0bU3Avw8')},
+   {img:'bone-patchwork',b:'Croogo',n:'Boné vintage de veludo, 5 painéis',c:'Cor: azul, marrom e verde',links:az('https://www.amazon.com/dp/B0CHRPCWSR')},
+   {img:'bone-colorido',b:'Clakllie',n:'Boné de veludo colorido, 5 painéis',c:'Cor: Blue (azul, terracota e amarelo)',links:az('https://a.co/d/04qK4JGj')}
+  ]},
+  {t:'Acessórios',items:[
+   {img:'bellroy',b:'Bellroy',n:'Pochete transversal Lite Belt Bag',c:'Cor: Ash',links:az('https://www.amazon.com/dp/B0CY1JJWN3')},
+   {img:'owala',b:'Owala',n:'Garrafa térmica FreeSip Sway 30 oz Harry Potter',c:'Estampa: Harry Potter Vignettes',links:az('https://www.amazon.com/dp/B0HGGX4RYW')}
+  ]},
+  {t:'Para ficar quentinho',items:[
+   {img:'coberta-raposa',b:'Mewaii',n:'Coberta de vestir de raposa',c:'Cor: laranja',links:az('https://www.amazon.com/dp/B0HC6CD3CT')},
+   {img:'mapa-maroto',b:'Harry Potter',n:'Manta Mapa do Maroto',c:'Tamanho: 127 × 152 cm',links:az('https://www.amazon.com/dp/B09C2SJC1W')}
+  ]},
+  {t:'Livros e jogos',items:[
+   {img:'livro-hp',b:'Harry Potter',n:'A Pedra Filosofal, edição ilustrada por Jim Kay',c:'Capa dura, em inglês',links:az('https://www.amazon.com/dp/1408845644')},
+   {img:'root',b:'Leder Games',n:'Root: A Game of Woodland Might and Right',c:'Versão: jogo base',links:az('https://www.amazon.com/dp/B07F454YF3')},
+   {img:'everdell',b:'Starling Games',n:'Everdell',c:'Versão: Standard Edition',links:az('https://www.amazon.com/dp/B09ZWQTTNR')},
+   {img:'harmonies',b:'Libellud',n:'Harmonies',c:'Versão: jogo base',links:az('https://www.amazon.com/dp/B0CVNPHPZY')},
+   {img:'splendor',b:'Space Cowboys',n:'Splendor',c:'Versão: jogo base',links:az('https://www.amazon.com/dp/B00IZEUFIA')},
+   {img:'heat',b:'Days of Wonder',n:'HEAT: Pedal to the Metal',c:'Versão: jogo base',links:az('https://www.amazon.com/dp/B0BGXPZG4B')},
+   {img:'calico',b:'AEG',n:'Calico',c:'Versão: jogo base',links:az('https://www.amazon.com/dp/B08B53WGWX')},
+   {img:'agricola',b:'Lookout Games',n:'Agricola',c:'Versão: Revised Edition',links:az('https://www.amazon.com/dp/B07JZFN8WS')}
+  ]}
  ]}
 ];
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-const usd=v=>'US$ '+v.toFixed(2).replace('.',',');
-const total=secs.reduce((a,s)=>a+s.items.length,0);
-document.getElementById('nav').innerHTML=secs.map(s=>`<a href="#${s.id}">${esc(s.t)} <span>${s.items.length}</span></a>`).join('');
-document.getElementById('lista').innerHTML=secs.map(s=>`
-<section id="${s.id}">
-  <div class="sh"><svg width="30" height="26" viewBox="0 0 30 26" aria-hidden="true"><path d="M2 12c4-1 6-5 6-9 2 3 5 4 8 3-1 3 0 6 2 8-3 0-6 2-7 5-1-3-4-5-9-7z" fill="#1b5239"/><path d="M28 12c-4-1-6-5-6-9-2 3-5 4-8 3 1 3 0 6-2 8 3 0 6 2 7 5 1-3 4-5 9-7z" fill="#123d2b"/><circle cx="13" cy="17" r="3.4" fill="#b3202d"/><circle cx="18" cy="18" r="3" fill="#8f1621"/><circle cx="15.5" cy="13.5" r="2.8" fill="#c8303c"/></svg><h2>${esc(s.t)}</h2><span class="count">${s.items.length} ${s.items.length>1?'itens':'item'}</span></div>
-  <div class="grid">${s.items.map(i=>`
-    <a class="card" href="${i.u||amz(i.q)}" target="_blank" rel="noopener">
-      <div class="ph">
-                ${i.L?'<span class="badge">Large</span>':''}
-        <img src="img/${i.img}.jpg" alt="${esc(i.n)}" loading="lazy">
-      </div>
-      <div class="body">
-        <p class="brand">${esc(i.b)}</p>
-        <p class="name">${esc(i.n)}</p>
-        <p class="det">${esc(i.c)}</p>
-        <div class="btn"><span>Comprar na Amazon ↗</span></div>
-      </div>
-    </a>`).join('')}
-  </div>
-</section>`).join('');
+const holly='<svg width="30" height="26" viewBox="0 0 30 26" aria-hidden="true"><path d="M2 12c4-1 6-5 6-9 2 3 5 4 8 3-1 3 0 6 2 8-3 0-6 2-7 5-1-3-4-5-9-7z" fill="#1b5239"/><path d="M28 12c-4-1-6-5-6-9-2 3-5 4-8 3 1 3 0 6-2 8 3 0 6 2 7 5 1-3 4-5 9-7z" fill="#123d2b"/><circle cx="13" cy="17" r="3.4" fill="#b3202d"/><circle cx="18" cy="18" r="3" fill="#8f1621"/><circle cx="15.5" cy="13.5" r="2.8" fill="#c8303c"/></svg>';
+const count=p=>p.secs.reduce((a,s)=>a+s.items.length,0);
+const card=i=>{
+  const first=i.links&&i.links[0]?i.links[0].u:'';
+  const pic=i.img?`<img ${i.img.endsWith('.svg')?'class="ilus" ':''}src="img/${i.img.includes('.')?i.img:i.img+'.jpg'}" alt="${esc(i.n)}">`:`<div class="tile ${i.tc||''}"><small>${esc(i.b)}</small>${esc(i.tile)}</div>`;
+  const ph=first?`<a class="ph" href="${esc(first)}" target="_blank" rel="noopener" tabindex="-1">${i.L?'<span class="badge">Large</span>':''}${pic}</a>`:`<div class="ph">${pic}</div>`;
+  return `<article class="card">${ph}<div class="body">
+    <p class="brand">${esc(i.b)}</p><p class="name">${esc(i.n)}</p>
+    ${i.c?`<p class="det">${esc(i.c)}</p>`:''}
+    ${i.tip?`<p class="tip">${i.tip}</p>`:''}
+    ${i.pending?`<p class="pending">${esc(i.pending)}</p>`:''}
+    ${i.links?`<div class="btns">${i.links.map(l=>`<a class="${l.alt?'alt':''}" href="${esc(l.u)}"${l.u.startsWith('http')?' target="_blank" rel="noopener"':''}>${esc(l.t)}${l.u.startsWith('http')?' ↗':''}</a>`).join('')}</div>`:''}
+  </div></article>`;
+};
+const nav=document.getElementById('nav'),main=document.getElementById('lista');
+nav.innerHTML=people.map(p=>`<a href="#${p.id}" role="tab" aria-controls="p-${p.id}">${esc(p.name)} <span>${count(p)}</span></a>`).join('');
+main.innerHTML=people.map(p=>`<div class="panel" id="p-${p.id}" role="tabpanel" hidden>
+  <div class="who"><h2>Presentes ${p.name==='Thiago'||p.name==='Pedro'?'do':'da'} ${esc(p.name)}</h2>${p.note?`<span class="note ${p.soft?'soft':''}">${esc(p.note)}</span>`:''}</div>
+  ${p.secs.length?p.secs.map(s=>`<section><div class="sh">${holly}<h2>${esc(s.t)}</h2><span class="count">${s.items.length} ${s.items.length>1?'itens':'item'}</span></div><div class="grid">${s.items.map(card).join('')}</div></section>`).join(''):''}
+</div>`).join('');
+const show=()=>{
+  const id=(location.hash||'').slice(1);
+  const cur=people.some(p=>p.id===id)?id:people[0].id;
+  people.forEach(p=>{document.getElementById('p-'+p.id).hidden=p.id!==cur});
+  nav.querySelectorAll('a').forEach(a=>a.setAttribute('aria-selected',a.getAttribute('href')==='#'+cur?'true':'false'));
+};
+nav.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();history.replaceState(null,'',a.getAttribute('href'));show();window.scrollTo({top:nav.offsetTop,behavior:'smooth'})});
+window.addEventListener('hashchange',show);
+show();
 }
+
 </script>
 </body>
 </html>
