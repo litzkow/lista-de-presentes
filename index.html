@@ -250,7 +250,7 @@ const people=[
    {img:'mc-relavel',b:'Relavel',n:'Necessaire de pendurar',c:'Estampa floral azul',links:az('https://a.co/d/04fA87Cz')}
   ]},
   {t:'Roupas',items:[
-   {img:'mc-legging',b:'Gymshark',n:'Everyday Seamless Flared Leggings',c:'Cor: Espresso Brown (marrom)',links:[{t:'Comprar na Gymshark',u:'https://www.gymshark.com/products/gymshark-everyday-seamless-flared-leggings-leggings-brown-aw26'}]}
+   {img:'mc-legging',b:'Gymshark',n:'Everyday Seamless Flared Leggings',c:'Cor: Espresso Brown (marrom) · Tamanho: M',sz:'M',links:[{t:'Comprar na Gymshark',u:'https://www.gymshark.com/products/gymshark-everyday-seamless-flared-leggings-leggings-brown-aw26'}]}
   ]},
   {t:'Para montar',items:[
    {img:'mc-rolife',b:'Rolife',n:'Book nook Fall into Wonder (kit para montar)',c:'Decoração de estante com luz',links:[{t:'Comprar na Michaels',u:'https://www.michaels.com/product/rolife-fall-into-wonder-diy-book-nook-shelf-insert-kit-10782109'}]}
@@ -258,6 +258,7 @@ const people=[
  ]},
  {id:'pedro',name:'Pedro',note:'O Pedro mandou ideias. Abaixo, sugestões de como presentear cada uma',soft:1,secs:[
   {t:'Experiências',items:[
+   {img:'pe-wunderglow',b:'Passeio de Natal',n:'Ingresso para o Wunder Glow',c:'Trilha de luzes de Natal em Dade City, perto de Tampa',links:[{t:'Comprar ingresso',u:'https://wunderglow.com/buy-tickets'}]},
    {img:'pe-vacas.svg',b:'Passeio',n:'Entrada para uma fazenda de fazer carinho em vacas',tip:'Procure por <b>cow cuddling</b>: fazendas que fazem sessões de carinho e abraço em vacas. Dá para dar de presente a entrada ou um vale.',pending:'Link: falta saber a cidade do Pedro'},
    {img:'pe-mergulho.svg',b:'Aula',n:'Aula de mergulho',tip:'Para quem nunca mergulhou, a aula de experiência (<b>Discover Scuba</b>, da PADI) é o melhor presente. Escolas de mergulho vendem como vale-presente.',pending:'Link: falta saber a cidade do Pedro'},
    {img:'pe-hipismo.svg',b:'Aula',n:'Aula de hipismo',tip:'Haras e escolas de equitação vendem <b>aula experimental</b> ou pacote de aulas para iniciantes.',pending:'Link: falta saber a cidade do Pedro'},
@@ -307,7 +308,7 @@ const count=p=>p.secs.reduce((a,s)=>a+s.items.length,0);
 const card=(i,pid)=>{
   const first=i.links&&i.links[0]?i.links[0].u:'';
   const pic=i.img?`<img ${i.img.endsWith('.svg')?'class="ilus" ':''}src="img/${i.img.includes('.')?i.img:i.img+'.jpg'}" alt="${esc(i.n)}">`:`<div class="tile ${i.tc||''}"><small>${esc(i.b)}</small>${esc(i.tile)}</div>`;
-  const ph=first?`<a class="ph" href="${esc(first)}" target="_blank" rel="noopener" tabindex="-1">${i.L?'<span class="badge">Large</span>':''}<span class="rbadge">Reservado</span>${pic}</a>`:`<div class="ph">${pic}</div>`;
+  const ph=first?`<a class="ph" href="${esc(first)}" target="_blank" rel="noopener" tabindex="-1">${i.L?'<span class="badge">Large</span>':i.sz?`<span class="badge">${esc(i.sz)}</span>`:''}<span class="rbadge">Reservado</span>${pic}</a>`:`<div class="ph">${pic}</div>`;
   return `<article class="card" data-id="${pid}/${i.img}">${ph}<div class="body">
     <p class="brand">${esc(i.b)}</p><p class="name">${esc(i.n)}</p>
     ${i.c?`<p class="det">${esc(i.c)}</p>`:''}
