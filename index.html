@@ -3,110 +3,143 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lista de presentes do Thiago</title>
+<title>Lista de Natal do Thiago</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* VOICE everyday, calm: a wishlist people open from a family group chat
-   IDEA a clean shop catalogue: photo, name, colour, size, one button
-   PICTURE the product photos themselves, in an even grid
-   COLOUR white ground, near-black ink, warm sand tiles echoing the linen and corduroy
-   TYPE Manrope 800 for titles + Manrope for text
-   LAYOUT title and size note across the top, section links, then 4/3/2 column grids */
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#121110);--ink:light-dark(#1b1916,#f2efe9);--soft:light-dark(#6b655c,#a8a196);--tile:light-dark(#f4f1ec,#1d1b18);--line:light-dark(#e7e2da,#2b2824);--btn:light-dark(#1b1916,#f2efe9);--btnink:light-dark(#ffffff,#121110);--pill:light-dark(#ece6dc,#2a2621)}
+/* VOICE occasion, warm and confident: a boutique gift catalogue for the family
+   IDEA a concept-store holiday lookbook: wine-red window, white shelves, price tags
+   PICTURE a collage of the products themselves in the hero, then a shop grid
+   COLOUR deep wine #5b1a2a hero and buttons, white shelves, blush tiles
+   TYPE DM Serif Display for titles + Figtree for text
+   LAYOUT hero band with title left and product collage right; sticky category pills; 4/3/2 column shop grid */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#141012);--ink:light-dark(#1d1416,#f4ecec);--soft:light-dark(#6f6266,#b3a6a9);--wine:#5b1a2a;--wine2:light-dark(#5b1a2a,#e6a8b5);--tile:light-dark(#f7efec,#221a1c);--line:light-dark(#eee4e1,#2e2427)}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
-html{scroll-padding-top:72px;scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Manrope,system-ui,sans-serif;overflow-x:clip}
+html{scroll-padding-top:76px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Figtree,system-ui,sans-serif;overflow-x:clip}
 .wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
-header{padding:clamp(32px,5vw,64px) 0 20px}
-h1{font-size:clamp(32px,5vw,48px);line-height:1.05;letter-spacing:-.02em;margin:0;font-weight:800;text-wrap:balance}
-.intro{margin:14px 0 0;color:var(--soft);font-size:17px;max-width:60ch}
-.size{display:inline-flex;align-items:center;gap:10px;margin-top:20px;padding:10px 16px;border-radius:999px;background:var(--pill);font-weight:600;font-size:15px}
-.size b{font-weight:800}
-nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hero{background:var(--wine);color:#fff}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;padding-top:clamp(36px,6vw,72px);padding-bottom:clamp(36px,6vw,72px)}
+.kicker{font-weight:600;font-size:15px;color:#f2c9d1;margin:0 0 14px}
+h1{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(42px,6.4vw,76px);line-height:1;letter-spacing:-.015em;margin:0;text-wrap:balance}
+.lead{font-size:18px;color:#f3dfe3;margin:18px 0 0;max-width:34ch}
+.size{display:inline-flex;gap:8px;align-items:center;margin-top:26px;background:#fff;color:var(--wine);font-weight:700;font-size:15px;padding:11px 18px;border-radius:999px}
+.size svg{flex:none}
+.collage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;aspect-ratio:3/2}
+.collage div{background:#fff;border-radius:16px;display:grid;place-items:center;padding:12px;overflow:hidden}
+.collage div:first-child{grid-row:span 2}
+.collage img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none}
-nav a{flex:none;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:8px 14px;border-radius:999px;border:1px solid var(--line)}
-nav a:hover,nav a:focus-visible{background:var(--pill);outline:none}
-section{padding:36px 0 8px}
-h2{font-size:24px;letter-spacing:-.01em;margin:0 0 4px;font-weight:800}
-.sub{margin:0 0 18px;color:var(--soft);font-size:15px}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
-.card{display:flex;flex-direction:column;border-radius:14px;overflow:hidden;background:var(--bg);border:1px solid var(--line)}
-.ph{aspect-ratio:4/5;background:#f4f1ec;display:grid;place-items:center;padding:14px}
-.ph img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:6px}
-.body{display:flex;flex-direction:column;gap:6px;padding:14px 16px 16px;flex:1}
-.name{font-weight:700;font-size:16px;line-height:1.3;margin:0}
+nav a{flex:none;display:flex;gap:6px;align-items:center;min-height:40px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:8px 16px;border-radius:999px;background:var(--tile)}
+nav a span{color:var(--soft);font-weight:500}
+nav a:hover,nav a:focus-visible{background:var(--wine);color:#fff;outline:none}
+nav a:hover span,nav a:focus-visible span{color:#f2c9d1}
+section{padding:48px 0 8px}
+.sh{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:12px}
+h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,40px);line-height:1.05;margin:0}
+.count{color:var(--soft);font-size:15px;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.card{display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.ph{position:relative;aspect-ratio:4/5;background:var(--tile);border-radius:18px;display:grid;place-items:center;padding:18px;overflow:hidden}
+.ph img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:8px;transition:transform .35s ease}
+.card:hover .ph img{transform:scale(1.05)}
+.badge{position:absolute;top:12px;left:12px;background:var(--wine);color:#fff;font-weight:700;font-size:13px;padding:5px 10px;border-radius:999px}
+.badge.l{left:auto;right:12px;background:#fff;color:#5b1a2a}
+.body{display:flex;flex-direction:column;gap:4px;padding:14px 4px 0;flex:1}
+.brand{font-size:13px;font-weight:700;color:var(--wine2);margin:0}
+.name{font-weight:600;font-size:16px;line-height:1.35;margin:0}
 .det{color:var(--soft);font-size:14px;margin:0}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
-.tag{font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--pill);white-space:nowrap}
-.price{font-weight:800;font-size:16px;white-space:nowrap;margin-top:2px}
-.price s{color:var(--soft);font-weight:500;font-size:14px;margin-left:6px}
-.go{margin-top:auto;padding-top:10px}
-.go a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border-radius:10px;background:var(--btn);color:var(--btnink);font-weight:700;font-size:15px;text-decoration:none}
-.go a:hover{opacity:.88}
-.go a:focus-visible{outline:3px solid var(--soft);outline-offset:2px}
-footer{margin-top:40px;padding:28px 0 48px;border-top:1px solid var(--line);color:var(--soft);font-size:14px}
+.price{display:flex;gap:8px;align-items:baseline;margin-top:4px;white-space:nowrap}
+.price b{font-size:19px;font-weight:800}
+.price s{color:var(--soft);font-size:14px}
+.btn{margin-top:auto;padding-top:12px}
+.btn span{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:12px;background:var(--wine);color:#fff;font-weight:700;font-size:15px;transition:background .2s}
+.card:hover .btn span{background:#7a2437}
+.card:focus-visible{outline:3px solid var(--wine2);outline-offset:6px;border-radius:18px}
+footer{margin-top:56px;background:var(--wine);color:#f3dfe3;font-size:14px}
+footer .wrap{padding-top:28px;padding-bottom:36px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+footer b{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:24px;color:#fff}
 @media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.body{padding:12px}.ph{padding:10px}.name{font-size:15px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:760px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}.ph{padding:12px;border-radius:14px}.name{font-size:15px}.price b{font-size:17px}.badge{font-size:12px;top:8px;left:8px}.badge.l{right:8px}.btn span{font-size:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ph img,.btn span{transition:none}.card:hover .ph img{transform:none}}
 </style>
 </head>
 <body>
-<header class="wrap">
-  <h1>Lista de presentes do Thiago</h1>
-  <p class="intro">Ideias para o Natal. Clique em "Ver na Amazon" para abrir o produto e escolha a cor indicada em cada item.</p>
-  <div class="size">Camisas, casacos e conjuntos: <b>sempre tamanho Large</b></div>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Natal 2026</p>
+      <h1>Lista de presentes do Thiago</h1>
+      <p class="lead" id="lead">Presentes escolhidos a dedo.</p>
+      <div class="size"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3a4 4 0 0 1-8 0z"/></svg>Roupas e casacos: sempre tamanho Large</div>
+    </div>
+    <div class="collage" aria-hidden="true">
+      <div><img src="img/camisa-trancada.jpg" alt=""></div>
+      <div><img src="img/bone-colorido.jpg" alt=""></div>
+      <div><img src="img/owala.jpg" alt=""></div>
+      <div><img src="img/bellroy.jpg" alt=""></div>
+      <div><img src="img/mapa-maroto.jpg" alt=""></div>
+    </div>
+  </div>
 </header>
-<nav aria-label="Seções"><div class="wrap" id="nav"></div></nav>
+<nav aria-label="Categorias"><div class="wrap" id="nav"></div></nav>
 <main class="wrap" id="lista"></main>
-<footer class="wrap">Os links abrem a busca do produto na Amazon. Os preços são os que apareceram na Black Friday de 2026 e podem mudar.</footer>
+<footer><div class="wrap"><b>Obrigado!</b><span>Preços vistos na Black Friday de 2026, podem mudar na Amazon.</span></div></footer>
 <script>
 {
 const amz=q=>'https://www.amazon.com/s?k='+encodeURIComponent(q);
 const secs=[
- {id:'roupas',t:'Roupas',s:'Tudo no tamanho Large.',items:[
-  {img:'conjunto-linho',n:'Conjunto de linho: camisa manga curta e calça',c:'Marrom (Brown)',L:1,p:'US$ 37,94',o:'US$ 46,99',q:'men 2 piece linen set short sleeve button down shirt drawstring pants brown'},
-  {img:'camisa-listrada',n:'Camisa de tricô listrada COOFANDY',c:'Cáqui com branco (Khaki White)',L:1,q:'COOFANDY Mens Knit Button Down Shirts Short Sleeve Polo Shirt Vintage Striped Casual Shirts'},
-  {img:'camisa-trancada',n:'Camisa de tricô trançado COOFANDY',c:'Marrom caramelo',L:1,q:'COOFANDY Mens Knit Short Sleeve Shirts Button Down Summer Polo Shirt Cable Knit Textured'},
-  {img:'camisa-veludo',n:'Camisa de veludo cotelê manga longa Cotrasen',c:'Bege claro',L:1,q:'Cotrasen Mens Button Down Shirt Long Sleeve Casual Corduroy Shirt'},
-  {img:'jaqueta-veludo',n:'Jaqueta trucker de veludo cotelê',c:'Bege claro',L:1,q:'Mens Corduroy Trucker Jacket with Snap Front and Four Pockets'}
+ {id:'roupas',t:'Roupas',items:[
+  {img:'conjunto-linho',u:'https://www.amazon.com/dp/B09QCV54BN',b:'Linho',n:'Conjunto camisa manga curta e calça',c:'Cor: Brown (marrom)',L:1,p:37.94,o:46.99,q:'men 2 piece linen set short sleeve button down shirt drawstring pants brown'},
+  {img:'camisa-listrada',u:'https://www.amazon.com/dp/B0G5LFQQKM',b:'COOFANDY',n:'Camisa de tricô listrada',c:'Cor: Khaki White',L:1,q:'COOFANDY Mens Knit Button Down Shirts Short Sleeve Polo Shirt Vintage Striped Casual Shirts'},
+  {img:'camisa-trancada',u:'https://www.amazon.com/dp/B0DNJX6G8W',b:'COOFANDY',n:'Camisa de tricô trançado',c:'Cor: marrom caramelo',L:1,q:'COOFANDY Mens Knit Short Sleeve Shirts Button Down Summer Polo Shirt Cable Knit Textured'},
+  {img:'camisa-veludo',u:'https://www.amazon.com/dp/B0FHKRD6HV',b:'Cotrasen',n:'Camisa de veludo cotelê manga longa',c:'Cor: bege claro',L:1,q:'Cotrasen Mens Button Down Shirt Long Sleeve Casual Corduroy Shirt'},
+  {img:'jaqueta-veludo',b:'Veludo cotelê',n:'Jaqueta trucker com botão de pressão',c:'Cor: bege claro',L:1,q:'Mens Corduroy Trucker Jacket with Snap Front and Four Pockets'}
  ]},
- {id:'bones',t:'Bonés',s:'Veludo cotelê, aba curta, 5 painéis.',items:[
-  {img:'bone-bege',n:'Boné de veludo aba curta Croogo',c:'Bege',q:'Croogo Corduroy Short Brim Hat Low Profile 5 Panel Dad Cap'},
-  {img:'bone-patchwork',n:'Boné vintage de veludo Croogo',c:'Patchwork azul, marrom e verde',q:'Croogo Short Brim Hat Vintage Corduroy 5 Panel Hat'},
-  {img:'bone-colorido',n:'Boné de veludo 5 painéis Clakllie',c:'Azul, terracota e amarelo (Blue)',q:'Clakllie 5 Panel Corduroy Hat Vintage Flat Brim WBDBH24081-Blue'}
+ {id:'bones',t:'Bonés',items:[
+  {img:'bone-bege',b:'Croogo',n:'Boné de veludo aba curta',c:'Cor: bege',q:'Croogo Corduroy Short Brim Hat Low Profile 5 Panel Dad Cap'},
+  {img:'bone-patchwork',u:'https://www.amazon.com/dp/B0CHRPCWSR',b:'Croogo',n:'Boné vintage de veludo, 5 painéis',c:'Cor: azul, marrom e verde',q:'Croogo Short Brim Hat Vintage Corduroy 5 Panel Hat'},
+  {img:'bone-colorido',u:'https://www.amazon.com/dp/B0DFG8FSYC',b:'Clakllie',n:'Boné de veludo colorido, 5 painéis',c:'Cor: Blue (azul, terracota e amarelo)',q:'Clakllie 5 Panel Corduroy Hat Vintage Flat Brim WBDBH24081-Blue'}
  ]},
- {id:'acessorios',t:'Acessórios',s:'Para o dia a dia.',items:[
-  {img:'bellroy',n:'Pochete transversal Bellroy Lite Belt Bag',c:'Ash (cinza claro)',q:'Bellroy Lite Belt Bag Versatile Crossbody Sling Ash'},
-  {img:'owala',n:'Garrafa térmica Owala FreeSip Sway 30 oz, Harry Potter',c:'Harry Potter Vignettes',q:'Owala FreeSip Sway Stainless Steel Water Bottle 30oz Harry Potter Vignettes'}
+ {id:'acessorios',t:'Acessórios',items:[
+  {img:'bellroy',u:'https://www.amazon.com/dp/B0CY1JJWN3',b:'Bellroy',n:'Pochete transversal Lite Belt Bag',c:'Cor: Ash',q:'Bellroy Lite Belt Bag Versatile Crossbody Sling Ash'},
+  {img:'owala',u:'https://www.amazon.com/dp/B0HGGX4RYW',b:'Owala',n:'Garrafa térmica FreeSip Sway 30 oz Harry Potter',c:'Estampa: Harry Potter Vignettes',q:'Owala FreeSip Sway Stainless Steel Water Bottle 30oz Harry Potter Vignettes'}
  ]},
- {id:'casa',t:'Para ficar quentinho',s:'Cobertas para o sofá.',items:[
-  {img:'coberta-raposa',n:'Coberta de vestir de raposa Mewaii',c:'Laranja (raposa)',q:'Mewaii Fox Blanket Cute Animal Wearable Blanket'},
-  {img:'mapa-maroto',n:'Manta Mapa do Maroto, Harry Potter',k:'Tamanho',c:'127 × 152 cm (50" × 60")',q:'Harry Potter Marauders Map Silky Touch Super Soft Throw Blanket 50x60'}
+ {id:'casa',t:'Para ficar quentinho',items:[
+  {img:'coberta-raposa',u:'https://www.amazon.com/dp/B0HC6CD3CT',b:'Mewaii',n:'Coberta de vestir de raposa',c:'Cor: laranja',q:'Mewaii Fox Blanket Cute Animal Wearable Blanket'},
+  {img:'mapa-maroto',u:'https://www.amazon.com/dp/B09C2SJC1W',b:'Harry Potter',n:'Manta Mapa do Maroto',c:'Tamanho: 127 × 152 cm',q:'Harry Potter Marauders Map Silky Touch Super Soft Throw Blanket 50x60'}
  ]},
- {id:'livros',t:'Livros e jogos',s:'',items:[
-  {img:'livro-hp',n:'Harry Potter e a Pedra Filosofal, edição ilustrada por Jim Kay',k:'Formato',c:'Capa dura (Hardcover), em inglês',p:'US$ 37,74',q:'Harry Potter and the Philosophers Stone Illustrated Edition Jim Kay hardcover'},
-  {img:'root',n:'Root: A Game of Woodland Might and Right',k:'Versão',c:'Jogo base (Root Base Game)',p:'US$ 33,60',o:'US$ 60,00',q:'Root A Game of Woodland Might and Right Leder Games base game'}
+ {id:'livros',t:'Livros e jogos',items:[
+  {img:'livro-hp',u:'https://www.amazon.com/dp/1408845644',b:'Harry Potter',n:'A Pedra Filosofal, edição ilustrada por Jim Kay',c:'Capa dura, em inglês',p:37.74,q:'Harry Potter and the Philosophers Stone Illustrated Edition Jim Kay hardcover'},
+  {img:'root',u:'https://www.amazon.com/dp/B07F454YF3',b:'Leder Games',n:'Root: A Game of Woodland Might and Right',c:'Jogo base',p:33.60,o:60,q:'Root A Game of Woodland Might and Right Leder Games base game'}
  ]}
 ];
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-document.getElementById('nav').innerHTML=secs.map(s=>`<a href="#${s.id}">${esc(s.t)}</a>`).join('');
+const usd=v=>'US$ '+v.toFixed(2).replace('.',',');
+const total=secs.reduce((a,s)=>a+s.items.length,0);
+document.getElementById('lead').textContent=total+' presentes escolhidos a dedo.';
+document.getElementById('nav').innerHTML=secs.map(s=>`<a href="#${s.id}">${esc(s.t)} <span>${s.items.length}</span></a>`).join('');
 document.getElementById('lista').innerHTML=secs.map(s=>`
 <section id="${s.id}">
-  <h2>${esc(s.t)}</h2>${s.s?`<p class="sub">${esc(s.s)}</p>`:'<p class="sub">&nbsp;</p>'}
+  <div class="sh"><h2>${esc(s.t)}</h2><span class="count">${s.items.length} ${s.items.length>1?'itens':'item'}</span></div>
   <div class="grid">${s.items.map(i=>`
-    <article class="card">
-      <div class="ph"><img src="img/${i.img}.jpg" alt="${esc(i.n)}" loading="lazy"></div>
-      <div class="body">
-        <p class="name">${esc(i.n)}</p>
-        <p class="det">${esc(i.k||'Cor')}: ${esc(i.c)}</p>
-        ${i.L?'<div class="tags"><span class="tag">Tamanho Large</span></div>':''}
-        ${i.p?`<div class="price">${esc(i.p)}${i.o?`<s>${esc(i.o)}</s>`:''}</div>`:''}
-        <div class="go"><a href="${amz(i.q)}" target="_blank" rel="noopener">Ver na Amazon ↗</a></div>
+    <a class="card" href="${i.u||amz(i.q)}" target="_blank" rel="noopener">
+      <div class="ph">
+        ${i.o?`<span class="badge">-${Math.round((1-i.p/i.o)*100)}%</span>`:''}
+        ${i.L?'<span class="badge l">Large</span>':''}
+        <img src="img/${i.img}.jpg" alt="${esc(i.n)}" loading="lazy">
       </div>
-    </article>`).join('')}
+      <div class="body">
+        <p class="brand">${esc(i.b)}</p>
+        <p class="name">${esc(i.n)}</p>
+        <p class="det">${esc(i.c)}</p>
+        ${i.p?`<div class="price"><b>${usd(i.p)}</b>${i.o?`<s>${usd(i.o)}</s>`:''}</div>`:''}
+        <div class="btn"><span>Comprar na Amazon ↗</span></div>
+      </div>
+    </a>`).join('')}
   </div>
 </section>`).join('');
 }
