@@ -6,88 +6,92 @@
 <title>Lista de Natal do Thiago</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* VOICE occasion, warm and confident: a boutique gift catalogue for the family
-   IDEA a concept-store holiday lookbook: wine-red window, white shelves, price tags
-   PICTURE a collage of the products themselves in the hero, then a shop grid
-   COLOUR deep wine #5b1a2a hero and buttons, white shelves, blush tiles
-   TYPE DM Serif Display for titles + Figtree for text
-   LAYOUT hero band with title left and product collage right; sticky category pills; 4/3/2 column shop grid */
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#141012);--ink:light-dark(#1d1416,#f4ecec);--soft:light-dark(#6f6266,#b3a6a9);--wine:#5b1a2a;--wine2:light-dark(#5b1a2a,#e6a8b5);--tile:light-dark(#f7efec,#221a1c);--line:light-dark(#eee4e1,#2e2427)}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+/* VOICE occasion, warm but grown-up: a family Christmas gift list
+   IDEA an elegant holiday shop window: pine-green awning, hanging baubles, a garland, white shelves
+   PICTURE hanging red and gold ornaments over a snowy green band, then the product shelves
+   COLOUR pine green #123d2b, cranberry #b3202d, antique gold #c6a15b, warm ivory ground, white cards
+   TYPE Cormorant Garamond 700 for titles + Plus Jakarta Sans for text
+   LAYOUT green hero with title left and ornaments right, garland edge, sticky pills, 4/3/2 shop grid */
+:root{color-scheme:light;--bg:#fbf8f2;--ink:#1a1714;--soft:#6e665c;--card:#ffffff;--line:#ebe4d6;--pine:#123d2b;--pine2:#1b5239;--red:#b3202d;--gold:#c6a15b}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:76px;scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Figtree,system-ui,sans-serif;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
-.hero{background:var(--wine);color:#fff}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;padding-top:clamp(36px,6vw,72px);padding-bottom:clamp(36px,6vw,72px)}
-.kicker{font-weight:600;font-size:15px;color:#f2c9d1;margin:0 0 14px}
-h1{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(42px,6.4vw,76px);line-height:1;letter-spacing:-.015em;margin:0;text-wrap:balance}
-.lead{font-size:18px;color:#f3dfe3;margin:18px 0 0;max-width:34ch}
-.size{display:inline-flex;gap:8px;align-items:center;margin-top:26px;background:#fff;color:var(--wine);font-weight:700;font-size:15px;padding:11px 18px;border-radius:999px}
+.hero{position:relative;background:radial-gradient(circle at 78% 30%,#1d5a3f 0,transparent 55%),var(--pine);color:#fbf6ea;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#ffffff 1.2px,transparent 1.6px),radial-gradient(#ffffff 0.8px,transparent 1.2px);background-size:46px 46px,29px 29px;background-position:0 0,13px 17px;opacity:.18;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:center;gap:24px;padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(52px,7vw,84px)}
+.kicker{font-weight:700;font-size:15px;color:var(--gold);margin:0 0 12px}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:clamp(46px,7vw,86px);line-height:.98;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.size{display:inline-flex;gap:8px;align-items:center;margin-top:26px;background:var(--red);color:#fff;font-weight:700;font-size:15px;padding:11px 18px;border-radius:999px;box-shadow:0 0 0 1px rgba(255,255,255,.18) inset}
 .size svg{flex:none}
-.collage{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;aspect-ratio:3/2}
-.collage div{background:#fff;border-radius:16px;display:grid;place-items:center;padding:12px;overflow:hidden}
-.collage div:first-child{grid-row:span 2}
-.collage img{max-width:100%;max-height:100%;object-fit:contain;display:block}
-nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.orn{width:100%;max-width:420px;justify-self:end;aspect-ratio:420/300}
+.orn svg{width:100%;height:100%;display:block}
+.garland{height:34px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2264%22%20height%3D%2234%22%20viewBox%3D%220%200%2064%2034%22%3E%3Cg%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%2017h64%22%20stroke%3D%22%23163f2c%22%20stroke-width%3D%2210%22/%3E%3Cg%20stroke%3D%22%231f5a3d%22%20stroke-width%3D%222.2%22%3E%3Cpath%20d%3D%22M4%2017l-3-9M10%2017l2-10M16%2017l-2-11M22%2017l4-9M28%2017l-4-10M34%2017l3-10M40%2017l-2-9M46%2017l3-10M52%2017l-3-10M58%2017l2-9M4%2017l-2%209M10%2017l3%2010M16%2017l-3%2010M22%2017l2%209M28%2017l-2%2010M34%2017l3%209M40%2017l-3%2010M46%2017l2%2010M52%2017l-2%209M58%2017l3%2010%22/%3E%3C/g%3E%3Cg%20stroke%3D%22%232d7a52%22%20stroke-width%3D%221.6%22%3E%3Cpath%20d%3D%22M7%2017l-4-6M19%2017l3-7M31%2017l-3-7M43%2017l4-6M55%2017l-3-7M7%2017l4%207M19%2017l-3%207M31%2017l4%206M43%2017l-4%207M55%2017l3%206%22/%3E%3C/g%3E%3C/g%3E%3Ccircle%20cx%3D%2213%22%20cy%3D%2215%22%20r%3D%223.4%22%20fill%3D%22%23c8202f%22/%3E%3Ccircle%20cx%3D%2217%22%20cy%3D%2219%22%20r%3D%222.8%22%20fill%3D%22%23a8121f%22/%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%2218%22%20r%3D%223.4%22%20fill%3D%22%23c8202f%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2214%22%20r%3D%221%22%20fill%3D%22%23ff8a8a%22/%3E%3Ccircle%20cx%3D%2244%22%20cy%3D%2217%22%20r%3D%221%22%20fill%3D%22%23ff8a8a%22/%3E%3C/svg%3E") repeat-x center/64px 34px;margin-top:-17px;position:relative;z-index:2}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none}
-nav a{flex:none;display:flex;gap:6px;align-items:center;min-height:40px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:8px 16px;border-radius:999px;background:var(--tile)}
+nav a{flex:none;display:flex;gap:6px;align-items:center;min-height:40px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:8px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
 nav a span{color:var(--soft);font-weight:500}
-nav a:hover,nav a:focus-visible{background:var(--wine);color:#fff;outline:none}
-nav a:hover span,nav a:focus-visible span{color:#f2c9d1}
-section{padding:48px 0 8px}
-.sh{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:12px}
-h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(30px,3.6vw,40px);line-height:1.05;margin:0}
-.count{color:var(--soft);font-size:15px;white-space:nowrap}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
-.card{display:flex;flex-direction:column;text-decoration:none;color:inherit}
-.ph{position:relative;aspect-ratio:4/5;background:var(--tile);border-radius:18px;display:grid;place-items:center;padding:18px;overflow:hidden}
-.ph img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:8px;transition:transform .35s ease}
-.card:hover .ph img{transform:scale(1.05)}
-.badge{position:absolute;top:12px;left:12px;background:var(--wine);color:#fff;font-weight:700;font-size:13px;padding:5px 10px;border-radius:999px}
-.badge.l{left:auto;right:12px;background:#fff;color:#5b1a2a}
-.body{display:flex;flex-direction:column;gap:4px;padding:14px 4px 0;flex:1}
-.brand{font-size:13px;font-weight:700;color:var(--wine2);margin:0}
+nav a:hover,nav a:focus-visible{background:var(--pine);color:#fff;border-color:var(--pine);outline:none}
+nav a:hover span,nav a:focus-visible span{color:#cfe3d6}
+section{padding:46px 0 8px}
+.sh{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.sh svg{flex:none}
+h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:clamp(32px,3.6vw,42px);line-height:1;margin:0;color:var(--pine)}
+.count{margin-left:auto;color:var(--soft);font-size:15px;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 22px}
+.card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:10px 10px 12px;transition:box-shadow .25s,transform .25s}
+.card:hover{box-shadow:0 10px 30px -12px rgba(18,61,43,.28);transform:translateY(-2px)}
+.ph{position:relative;aspect-ratio:4/5;background:#f6f3ec;border-radius:12px;display:grid;place-items:center;padding:16px;overflow:hidden}
+.ph img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:6px;mix-blend-mode:multiply}
+.badge{position:absolute;top:10px;right:10px;background:#fff;color:var(--pine);font-weight:700;font-size:13px;padding:4px 10px;border-radius:999px;box-shadow:0 0 0 1px var(--gold)}
+.body{display:flex;flex-direction:column;gap:3px;padding:12px 4px 0;flex:1}
+.brand{font-size:13px;font-weight:700;color:var(--red);margin:0}
 .name{font-weight:600;font-size:16px;line-height:1.35;margin:0}
 .det{color:var(--soft);font-size:14px;margin:0}
-.price{display:flex;gap:8px;align-items:baseline;margin-top:4px;white-space:nowrap}
-.price b{font-size:19px;font-weight:800}
-.price s{color:var(--soft);font-size:14px}
-.btn{margin-top:auto;padding-top:12px}
-.btn span{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:12px;background:var(--wine);color:#fff;font-weight:700;font-size:15px;transition:background .2s}
-.card:hover .btn span{background:#7a2437}
-.card:focus-visible{outline:3px solid var(--wine2);outline-offset:6px;border-radius:18px}
-footer{margin-top:56px;background:var(--wine);color:#f3dfe3;font-size:14px}
-footer .wrap{padding-top:28px;padding-bottom:36px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
-footer b{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:24px;color:#fff}
+.btn{margin-top:auto;padding-top:14px}
+.btn span{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:12px;background:var(--pine);color:#fff;font-weight:700;font-size:15px;transition:background .2s}
+.card:hover .btn span{background:var(--red)}
+.card:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+footer{margin-top:64px;background:var(--pine);color:#e9e2cf;font-size:14px;position:relative}
+footer .wrap{padding-top:36px;padding-bottom:40px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+footer b{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:30px;color:#fbf6ea}
+footer .garland{position:absolute;top:-17px;left:0;right:0;margin:0}
 @media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:760px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}.ph{padding:12px;border-radius:14px}.name{font-size:15px}.price b{font-size:17px}.badge{font-size:12px;top:8px;left:8px}.badge.l{right:8px}.btn span{font-size:14px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ph img,.btn span{transition:none}.card:hover .ph img{transform:none}}
+@media(max-width:760px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.orn{order:-1;max-width:260px;justify-self:end;margin-top:-28px;margin-bottom:-36px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px}.card{padding:8px 8px 10px;border-radius:14px}.ph{padding:10px}.name{font-size:15px}.btn span{font-size:14px}.badge{font-size:12px;top:8px;right:8px}}
+@media(prefers-reduced-motion:no-preference){.bob{transform-origin:50% 0;animation:sway 5s ease-in-out infinite}.bob:nth-of-type(2){animation-delay:-1.6s}.bob:nth-of-type(3){animation-delay:-3.1s}.bob:nth-of-type(4){animation-delay:-.8s}@keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
 </style>
 </head>
 <body>
 <header class="hero">
   <div class="wrap">
     <div>
-      <p class="kicker">Natal 2026</p>
+      <p class="kicker">Feliz Natal</p>
       <h1>Lista de presentes do Thiago</h1>
-      <p class="lead" id="lead">Presentes escolhidos a dedo.</p>
       <div class="size"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3a4 4 0 0 1-8 0z"/></svg>Roupas e casacos: sempre tamanho Large</div>
     </div>
-    <div class="collage" aria-hidden="true">
-      <div><img src="img/camisa-trancada.jpg" alt=""></div>
-      <div><img src="img/bone-colorido.jpg" alt=""></div>
-      <div><img src="img/owala.jpg" alt=""></div>
-      <div><img src="img/bellroy.jpg" alt=""></div>
-      <div><img src="img/mapa-maroto.jpg" alt=""></div>
+    <div class="orn" aria-hidden="true">
+      <svg viewBox="0 0 420 300">
+        <defs>
+          <radialGradient id="r" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#e2434f"/><stop offset=".55" stop-color="#b3202d"/><stop offset="1" stop-color="#6e0f18"/></radialGradient>
+          <radialGradient id="g" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#f3d995"/><stop offset=".55" stop-color="#c6a15b"/><stop offset="1" stop-color="#7d5f27"/></radialGradient>
+          <radialGradient id="w" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#ffffff"/><stop offset=".6" stop-color="#e8e2d2"/><stop offset="1" stop-color="#a39a86"/></radialGradient>
+          <g id="cap"><rect x="-9" y="-6" width="18" height="12" rx="2" fill="#d8b874"/><rect x="-9" y="-1" width="18" height="2" fill="#9c7c3c"/><circle cy="-9" r="4" fill="none" stroke="#d8b874" stroke-width="2"/></g>
+        </defs>
+        <g class="bob"><line x1="70" y1="0" x2="70" y2="118" stroke="#c6a15b" stroke-width="1.5"/><use href="#cap" x="70" y="128"/><circle cx="70" cy="172" r="40" fill="url(#r)"/><path d="M34 168q36 14 72 0" stroke="#c6a15b" stroke-width="3" fill="none" opacity=".9"/><path d="M34 182q36 14 72 0" stroke="#c6a15b" stroke-width="1.5" fill="none" opacity=".7"/><ellipse cx="55" cy="152" rx="10" ry="6" fill="#fff" opacity=".35" transform="rotate(-30 55 152)"/></g>
+        <g class="bob"><line x1="170" y1="0" x2="170" y2="54" stroke="#c6a15b" stroke-width="1.5"/><use href="#cap" x="170" y="64"/><circle cx="170" cy="98" r="30" fill="url(#g)"/><ellipse cx="159" cy="84" rx="8" ry="4.5" fill="#fff" opacity=".45" transform="rotate(-30 159 84)"/></g>
+        <g class="bob"><line x1="268" y1="0" x2="268" y2="150" stroke="#c6a15b" stroke-width="1.5"/><use href="#cap" x="268" y="160"/><circle cx="268" cy="210" r="46" fill="url(#r)"/><g fill="#f3d995" opacity=".9"><circle cx="246" cy="200" r="3"/><circle cx="268" cy="194" r="3"/><circle cx="290" cy="200" r="3"/><circle cx="257" cy="222" r="3"/><circle cx="279" cy="222" r="3"/></g><ellipse cx="250" cy="188" rx="11" ry="6" fill="#fff" opacity=".35" transform="rotate(-30 250 188)"/></g>
+        <g class="bob"><line x1="360" y1="0" x2="360" y2="84" stroke="#c6a15b" stroke-width="1.5"/><use href="#cap" x="360" y="94"/><circle cx="360" cy="130" r="32" fill="url(#w)"/><path d="M360 106l3 9h9l-7 6 3 9-8-5-8 5 3-9-7-6h9z" fill="#b3202d" opacity=".85"/><ellipse cx="348" cy="116" rx="8" ry="4.5" fill="#fff" opacity=".6" transform="rotate(-30 348 116)"/></g>
+      </svg>
     </div>
   </div>
 </header>
+<div class="garland" aria-hidden="true"></div>
 <nav aria-label="Categorias"><div class="wrap" id="nav"></div></nav>
 <main class="wrap" id="lista"></main>
-<footer><div class="wrap"><b>Obrigado!</b><span>Preços vistos na Black Friday de 2026, podem mudar na Amazon.</span></div></footer>
+<footer><div class="garland" aria-hidden="true"></div><div class="wrap"><b>Feliz Natal e obrigado!</b><span>Com carinho, Thiago</span></div></footer>
 <script>
 {
 const amz=q=>'https://www.amazon.com/s?k='+encodeURIComponent(q);
@@ -120,23 +124,20 @@ const secs=[
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const usd=v=>'US$ '+v.toFixed(2).replace('.',',');
 const total=secs.reduce((a,s)=>a+s.items.length,0);
-document.getElementById('lead').textContent=total+' presentes escolhidos a dedo.';
 document.getElementById('nav').innerHTML=secs.map(s=>`<a href="#${s.id}">${esc(s.t)} <span>${s.items.length}</span></a>`).join('');
 document.getElementById('lista').innerHTML=secs.map(s=>`
 <section id="${s.id}">
-  <div class="sh"><h2>${esc(s.t)}</h2><span class="count">${s.items.length} ${s.items.length>1?'itens':'item'}</span></div>
+  <div class="sh"><svg width="30" height="26" viewBox="0 0 30 26" aria-hidden="true"><path d="M2 12c4-1 6-5 6-9 2 3 5 4 8 3-1 3 0 6 2 8-3 0-6 2-7 5-1-3-4-5-9-7z" fill="#1b5239"/><path d="M28 12c-4-1-6-5-6-9-2 3-5 4-8 3 1 3 0 6-2 8 3 0 6 2 7 5 1-3 4-5 9-7z" fill="#123d2b"/><circle cx="13" cy="17" r="3.4" fill="#b3202d"/><circle cx="18" cy="18" r="3" fill="#8f1621"/><circle cx="15.5" cy="13.5" r="2.8" fill="#c8303c"/></svg><h2>${esc(s.t)}</h2><span class="count">${s.items.length} ${s.items.length>1?'itens':'item'}</span></div>
   <div class="grid">${s.items.map(i=>`
     <a class="card" href="${i.u||amz(i.q)}" target="_blank" rel="noopener">
       <div class="ph">
-        ${i.o?`<span class="badge">-${Math.round((1-i.p/i.o)*100)}%</span>`:''}
-        ${i.L?'<span class="badge l">Large</span>':''}
+                ${i.L?'<span class="badge">Large</span>':''}
         <img src="img/${i.img}.jpg" alt="${esc(i.n)}" loading="lazy">
       </div>
       <div class="body">
         <p class="brand">${esc(i.b)}</p>
         <p class="name">${esc(i.n)}</p>
         <p class="det">${esc(i.c)}</p>
-        ${i.p?`<div class="price"><b>${usd(i.p)}</b>${i.o?`<s>${usd(i.o)}</s>`:''}</div>`:''}
         <div class="btn"><span>Comprar na Amazon ↗</span></div>
       </div>
     </a>`).join('')}
