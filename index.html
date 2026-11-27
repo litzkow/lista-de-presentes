@@ -2,8 +2,16 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Presentes da Familinha</title>
+<meta name="theme-color" content="#123d2b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Familinha">
+<link rel="apple-touch-icon" href="img/icone-180.png">
+<link rel="icon" type="image/png" href="img/icone-192.png">
+<script>(function(){var c=new URLSearchParams(location.search).get('eu'),l=document.createElement('link');l.rel='manifest';l.href=(c&&/^[a-z0-9]{5}$/.test(c))?'manifest-'+c+'.json':'manifest.json';document.head.appendChild(l)})()</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,10 +26,10 @@
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:76px;scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Plus Jakarta Sans",system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px,env(safe-area-inset-right)) 0 max(5vw,16px,env(safe-area-inset-left))}
 .hero{position:relative;background:radial-gradient(circle at 78% 30%,#1d5a3f 0,transparent 55%),var(--pine);color:#fbf6ea;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(#ffffff 1.2px,transparent 1.6px),radial-gradient(#ffffff 0.8px,transparent 1.2px);background-size:46px 46px,29px 29px;background-position:0 0,13px 17px;opacity:.18;pointer-events:none}
-.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:center;gap:24px;padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(52px,7vw,84px)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:center;gap:24px;padding-top:calc(clamp(40px,6vw,72px) + env(safe-area-inset-top));padding-bottom:clamp(52px,7vw,84px)}
 .kicker{font-weight:700;font-size:15px;color:var(--gold);margin:0 0 12px}
 h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:clamp(46px,7vw,86px);line-height:.98;letter-spacing:-.01em;margin:0;text-wrap:balance}
 .size{display:inline-flex;gap:8px;align-items:center;margin-top:26px;background:var(--red);color:#fff;font-weight:700;font-size:15px;padding:11px 18px;border-radius:999px;box-shadow:0 0 0 1px rgba(255,255,255,.18) inset}
@@ -29,7 +37,7 @@ h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:clam
 .orn{width:100%;max-width:420px;justify-self:end;aspect-ratio:420/300}
 .orn svg{width:100%;height:100%;display:block}
 .garland{height:34px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2264%22%20height%3D%2234%22%20viewBox%3D%220%200%2064%2034%22%3E%3Cg%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%2017h64%22%20stroke%3D%22%23163f2c%22%20stroke-width%3D%2210%22/%3E%3Cg%20stroke%3D%22%231f5a3d%22%20stroke-width%3D%222.2%22%3E%3Cpath%20d%3D%22M4%2017l-3-9M10%2017l2-10M16%2017l-2-11M22%2017l4-9M28%2017l-4-10M34%2017l3-10M40%2017l-2-9M46%2017l3-10M52%2017l-3-10M58%2017l2-9M4%2017l-2%209M10%2017l3%2010M16%2017l-3%2010M22%2017l2%209M28%2017l-2%2010M34%2017l3%209M40%2017l-3%2010M46%2017l2%2010M52%2017l-2%209M58%2017l3%2010%22/%3E%3C/g%3E%3Cg%20stroke%3D%22%232d7a52%22%20stroke-width%3D%221.6%22%3E%3Cpath%20d%3D%22M7%2017l-4-6M19%2017l3-7M31%2017l-3-7M43%2017l4-6M55%2017l-3-7M7%2017l4%207M19%2017l-3%207M31%2017l4%206M43%2017l-4%207M55%2017l3%206%22/%3E%3C/g%3E%3C/g%3E%3Ccircle%20cx%3D%2213%22%20cy%3D%2215%22%20r%3D%223.4%22%20fill%3D%22%23c8202f%22/%3E%3Ccircle%20cx%3D%2217%22%20cy%3D%2219%22%20r%3D%222.8%22%20fill%3D%22%23a8121f%22/%3E%3Ccircle%20cx%3D%2245%22%20cy%3D%2218%22%20r%3D%223.4%22%20fill%3D%22%23c8202f%22/%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2214%22%20r%3D%221%22%20fill%3D%22%23ff8a8a%22/%3E%3Ccircle%20cx%3D%2244%22%20cy%3D%2217%22%20r%3D%221%22%20fill%3D%22%23ff8a8a%22/%3E%3C/svg%3E") repeat-x center/64px 34px;margin-top:-17px;position:relative;z-index:2}
-nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{position:sticky;top:0;z-index:5;padding-top:env(safe-area-inset-top);background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;gap:8px;overflow-x:auto;padding-top:12px;padding-bottom:12px;scrollbar-width:none}
 nav a{flex:none;display:flex;gap:6px;align-items:center;min-height:40px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:8px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
 nav a span{color:var(--soft);font-weight:500}
@@ -55,7 +63,7 @@ h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:clam
 .card:hover .btn span{background:var(--red)}
 .card:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
 footer{margin-top:64px;background:var(--pine);color:#e9e2cf;font-size:14px;position:relative}
-footer .wrap{padding-top:36px;padding-bottom:40px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+footer .wrap{padding-top:36px;padding-bottom:calc(40px + env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
 footer b{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:30px;color:#fbf6ea}
 footer .garland{position:absolute;top:-17px;left:0;right:0;margin:0}
 
@@ -100,6 +108,83 @@ nav a.back{background:transparent;border-color:transparent;color:var(--pine);fon
 .wl{display:flex;align-items:center;gap:18px}
 .wav{width:76px;height:76px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px #fff,0 0 0 6px var(--gold)}
 @media(max-width:520px){.people{gap:12px}.pcard{flex:0 1 calc(50% - 6px);padding:20px 10px 18px}.av{width:108px;height:108px}.pcard b{font-size:25px}.wav{width:58px;height:58px}.wl{gap:12px}}
+
+.rsv{padding-top:10px}
+.btns+.rsv{padding-top:8px}
+.rbtn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border-radius:12px;border:1.5px dashed var(--gold);background:#fffaf0;color:#8a6a2c;font:700 14px "Plus Jakarta Sans",system-ui,sans-serif;cursor:pointer;transition:background .2s,color .2s}
+.rbtn:hover,.rbtn:focus-visible{background:var(--gold);color:#fff;border-style:solid;outline:none}
+.rnote{margin:0;display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:12px;background:#f1ece2;color:var(--soft);font-weight:700;font-size:14px;text-align:center;padding:0 10px}
+.rnote.mine{background:#e6f0ea;color:var(--pine)}
+.rlink{display:block;margin:8px auto 0;background:none;border:0;color:var(--soft);font:600 13px "Plus Jakarta Sans",system-ui,sans-serif;text-decoration:underline;cursor:pointer;min-height:32px}
+.rbadge{display:none;position:absolute;z-index:2;top:16px;right:-38px;transform:rotate(35deg);background:var(--red);color:#fff;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:6px 40px;box-shadow:0 4px 10px rgba(0,0,0,.18)}
+.is-res .rbadge{display:block}
+.is-mine .rbadge{background:var(--pine)}
+.is-res:not(.is-mine) .ph img{opacity:.45;filter:grayscale(.7)}
+.is-res:not(.is-mine) .btns,.is-res:not(.is-mine) .pending{display:none}
+.is-res:not(.is-mine) .name{color:var(--soft)}
+.rdlg{border:0;border-radius:22px;padding:26px 24px 22px;width:min(420px,calc(100vw - 32px));background:var(--bg);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
+.rdlg::backdrop{background:rgba(18,30,24,.55);backdrop-filter:blur(3px)}
+.rdlg h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:32px;line-height:1.05;margin:4px 0 10px;color:var(--pine)}
+.rdlg p{margin:0 0 14px;font-size:15px;line-height:1.5}
+.rdlg .kick{margin:0;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.rhead{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:16px}
+.rhead img{width:56px;height:56px;object-fit:contain;border-radius:8px;background:#f6f3ec}
+.rhead small{display:block;font-size:12px;color:var(--soft)}
+.rhead b{font-size:15px}
+.chk{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px;font-weight:600;font-size:15px;cursor:pointer;margin-bottom:6px}
+.chk input{width:22px;height:22px;accent-color:var(--pine);flex:none;margin:0}
+.racts{display:flex;gap:10px;margin-top:16px}
+.racts button{flex:1;min-height:48px;border-radius:12px;font:700 15px "Plus Jakarta Sans",system-ui,sans-serif;cursor:pointer;border:0}
+.pri{background:var(--pine);color:#fff}
+.pri:disabled{background:#c9c4b8;cursor:not-allowed}
+.ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.hold{--p:0;position:relative;overflow:hidden;width:100%;min-height:58px;border:0;border-radius:14px;background:#6f1520;color:#fff;font:800 16px "Plus Jakarta Sans",system-ui,sans-serif;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:none;-webkit-touch-callout:none}
+.hold .fill{position:absolute;inset:0;background:var(--red);transform-origin:left;transform:scaleX(var(--p))}
+.hold .lbl{position:relative}
+.hold.on{box-shadow:0 0 0 4px rgba(179,32,45,.25)}
+.hint{text-align:center;font-size:13px!important;color:var(--soft);margin:8px 0 0!important}
+.done{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--pine);color:#fff;font-size:32px;font-weight:800;margin:4px 0 12px}
+.done.off{background:var(--gold)}
+
+.eu{text-align:center;margin:-26px 0 30px;font-size:14px;color:var(--soft)}
+.eu b{color:var(--ink)}
+.eu button{background:none;border:0;padding:4px;color:var(--red);font:700 14px "Plus Jakarta Sans",system-ui,sans-serif;text-decoration:underline;cursor:pointer}
+.surp{margin:18px 0 0;background:#e6f0ea;color:var(--pine);border-radius:14px;padding:12px 16px;font-weight:600;font-size:14px}
+.qgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+.qgrid button{display:flex;flex-direction:column;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:12px 6px;cursor:pointer;font:700 14px "Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink)}
+.qgrid button:hover,.qgrid button:focus-visible{border-color:var(--pine);outline:none}
+.qgrid img,.qx{width:58px;height:58px;border-radius:50%;object-fit:cover}
+.qbig{width:96px!important;height:96px!important;border-radius:50%;object-fit:cover;display:grid;margin:0 auto 6px;box-shadow:0 0 0 3px #fff,0 0 0 6px var(--gold)}
+.qdlg h3{text-align:center}
+.qx{display:grid;place-items:center;background:#f1ece2;color:var(--soft);font-size:28px;font-weight:400}
+
+.eu button{background:none;border:0;padding:4px;color:var(--red);font:700 14px "Plus Jakarta Sans",system-ui,sans-serif;text-decoration:underline;cursor:pointer}
+.guia{width:min(460px,calc(100vw - 24px));max-height:calc(100dvh - 24px - env(safe-area-inset-top) - env(safe-area-inset-bottom));overflow:auto}
+.guia .gbody{min-height:300px}
+.guia h3{margin-top:2px}
+.guia .small{font-size:13px!important;color:var(--soft)}
+.how{list-style:none;padding:0;margin:6px 0 10px;display:grid;gap:10px}
+.how li{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:15px;line-height:1.45}
+.how li>span{flex:none;width:28px;height:28px;border-radius:50%;background:var(--pine);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+.key{display:inline-flex;align-items:center;gap:2px;vertical-align:middle;background:#f1ece2;border-radius:8px;padding:1px 7px;color:var(--ink)}
+.chipr{display:inline-flex;align-items:center;gap:4px;font-style:normal;font-weight:700;color:#8a6a2c;background:#fffaf0;border:1.5px dashed var(--gold);border-radius:8px;padding:0 6px;font-size:13px;vertical-align:middle}
+.chipr svg{width:14px;height:14px}
+.mini{display:flex;flex-direction:column;align-items:center;gap:6px;margin:14px auto 4px;width:max-content}
+.mini img{width:72px;height:72px;border-radius:17px;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.mini span{font-size:13px;font-weight:600}
+.gdots{display:flex;justify-content:center;gap:6px;margin-top:12px}
+.gdots i{width:7px;height:7px;border-radius:50%;background:#d9d2c3}
+.gdots i.on{background:var(--pine);width:20px;border-radius:4px}
+.pri.big{width:100%;min-height:52px;border-radius:14px;font:800 16px "Plus Jakarta Sans",system-ui,sans-serif;margin:4px 0 6px;border:0;cursor:pointer}
+@media(max-width:420px){.rbtn .lg{display:none}.rbtn{font-size:13px}}
+
+.appban{display:flex;align-items:center;gap:12px;max-width:560px;margin:-14px auto 30px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 12px 12px 14px;box-shadow:0 8px 24px -16px rgba(18,61,43,.4);position:relative}
+.appban img{width:48px;height:48px;border-radius:12px;flex:none}
+.appban div{flex:1;display:flex;flex-direction:column;line-height:1.3}
+.appban b{font-size:15px}
+.appban span{font-size:13px;color:var(--soft)}
+.appban .pri{flex:none;border:0;border-radius:12px;min-height:42px;padding:0 14px;font:700 14px "Plus Jakarta Sans",system-ui,sans-serif;cursor:pointer}
+.banx{position:absolute;top:-10px;right:-10px;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--soft);font-size:18px;line-height:1;cursor:pointer}
 [hidden]{display:none!important}
 @media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.orn{order:-1;max-width:260px;justify-self:end;margin-top:-28px;margin-bottom:-36px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px}.card{padding:8px 8px 10px;border-radius:14px}.ph{padding:10px}.name{font-size:15px}.btn span{font-size:14px}.badge{font-size:12px;top:8px;right:8px}}
@@ -212,27 +297,29 @@ const people=[
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const holly='<svg width="30" height="26" viewBox="0 0 30 26" aria-hidden="true"><path d="M2 12c4-1 6-5 6-9 2 3 5 4 8 3-1 3 0 6 2 8-3 0-6 2-7 5-1-3-4-5-9-7z" fill="#1b5239"/><path d="M28 12c-4-1-6-5-6-9-2 3-5 4-8 3 1 3 0 6-2 8 3 0 6 2 7 5 1-3 4-5 9-7z" fill="#123d2b"/><circle cx="13" cy="17" r="3.4" fill="#b3202d"/><circle cx="18" cy="18" r="3" fill="#8f1621"/><circle cx="15.5" cy="13.5" r="2.8" fill="#c8303c"/></svg>';
 const count=p=>p.secs.reduce((a,s)=>a+s.items.length,0);
-const card=i=>{
+const card=(i,pid)=>{
   const first=i.links&&i.links[0]?i.links[0].u:'';
   const pic=i.img?`<img ${i.img.endsWith('.svg')?'class="ilus" ':''}src="img/${i.img.includes('.')?i.img:i.img+'.jpg'}" alt="${esc(i.n)}">`:`<div class="tile ${i.tc||''}"><small>${esc(i.b)}</small>${esc(i.tile)}</div>`;
-  const ph=first?`<a class="ph" href="${esc(first)}" target="_blank" rel="noopener" tabindex="-1">${i.L?'<span class="badge">Large</span>':''}${pic}</a>`:`<div class="ph">${pic}</div>`;
-  return `<article class="card">${ph}<div class="body">
+  const ph=first?`<a class="ph" href="${esc(first)}" target="_blank" rel="noopener" tabindex="-1">${i.L?'<span class="badge">Large</span>':''}<span class="rbadge">Reservado</span>${pic}</a>`:`<div class="ph">${pic}</div>`;
+  return `<article class="card" data-id="${pid}/${i.img}">${ph}<div class="body">
     <p class="brand">${esc(i.b)}</p><p class="name">${esc(i.n)}</p>
     ${i.c?`<p class="det">${esc(i.c)}</p>`:''}
     ${i.tip?`<p class="tip">${i.tip}</p>`:''}
     ${i.pending?`<p class="pending">${esc(i.pending)}</p>`:''}
     ${i.links?`<div class="btns">${i.links.map(l=>`<a class="${l.alt?'alt':''}" href="${esc(l.u)}"${l.u.startsWith('http')?' target="_blank" rel="noopener"':''}>${esc(l.t)}${l.u.startsWith('http')?' ↗':''}</a>`).join('')}</div>`:''}
+    <div class="rsv"></div>
   </div></article>`;
 };
 const nav=document.getElementById('nav'),main=document.getElementById('lista'),home=document.getElementById('home');
 const art=p=>p.name==='Thiago'||p.name==='Pedro'?'do':'da';
 const qty=n=>n?`${n} ${n>1?'presentes':'presente'}`:'Lista de presentes';
-home.innerHTML=`<div class="wrap"><p class="hk">Escolha uma pessoa</p><h2 class="ht">De quem é a lista?</h2>
+home.innerHTML=`<div class="wrap"><p class="hk">Escolha uma pessoa</p><h2 class="ht">De quem é a lista?</h2><p class="eu" id="eu"></p>
 <div class="people">${people.map(p=>`<a class="pcard" href="#${p.id}"><span class="av"><img src="img/av-${p.id}.jpg" alt="${esc(p.name)}"></span><b>${esc(p.name)}</b><small>${qty(count(p))}</small><span class="go">Ver lista →</span></a>`).join('')}</div></div>`;
 nav.innerHTML=`<a href="#" class="back">← Todos</a>`+people.map(p=>`<a href="#${p.id}" role="tab" aria-controls="p-${p.id}"><img src="img/av-${p.id}.jpg" alt="">${esc(p.name)}</a>`).join('');
 main.innerHTML=people.map(p=>`<div class="panel" id="p-${p.id}" role="tabpanel" hidden>
   <div class="who"><div class="wl"><img class="wav" src="img/av-${p.id}.jpg" alt=""><h2>Presentes ${art(p)} ${esc(p.name)}</h2></div>${p.note?`<span class="note ${p.soft?'soft':''}">${esc(p.note)}</span>`:''}</div>
-  ${p.secs.map(s=>`<section><div class="sh">${holly}<h2>${esc(s.t)}</h2><span class="count">${s.items.length} ${s.items.length>1?'itens':'item'}</span></div><div class="grid">${s.items.map(card).join('')}</div></section>`).join('')}
+  <p class="surp" hidden>🎁 Esta é a sua lista. As reservas ficam escondidas para você, assim tudo continua surpresa.</p>
+  ${p.secs.map(s=>`<section><div class="sh">${holly}<h2>${esc(s.t)}</h2><span class="count">${s.items.length} ${s.items.length>1?'itens':'item'}</span></div><div class="grid">${s.items.map(i=>card(i,p.id)).join('')}</div></section>`).join('')}
 </div>`).join('');
 const show=()=>{
   const id=(location.hash||'').slice(1);
@@ -243,10 +330,120 @@ const show=()=>{
   const t=cur?people.find(p=>p.id===cur):null;
   document.title=t?`Presentes ${art(t)} ${t.name}`:'Presentes da Familinha';
 };
-const go=e=>{const a=e.target.closest('a');if(!a||!a.getAttribute('href').startsWith('#'))return;e.preventDefault();const h=a.getAttribute('href');history.pushState(null,'',h==='#'?location.pathname:h);show();window.scrollTo({top:h==='#'?0:document.querySelector('.garland').offsetTop,behavior:'smooth'})};
+const go=e=>{const a=e.target.closest('a');if(!a||!a.getAttribute('href').startsWith('#'))return;e.preventDefault();const h=a.getAttribute('href');history.pushState(null,'',h==='#'?location.pathname+location.search:h);show();window.scrollTo({top:h==='#'?0:document.querySelector('.garland').offsetTop,behavior:'smooth'})};
 nav.addEventListener('click',go);home.addEventListener('click',go);
 window.addEventListener('hashchange',show);window.addEventListener('popstate',show);
 show();
+/* ---------- Quem está vendo (para esconder as surpresas da própria lista) ---------- */
+/* Link pessoal: ?eu=código. O link principal (sem código) não mostra reservas. */
+const CODES={g7k2q:'gabriela',k4m8t:'karina',m9c3x:'maria-clara',p2r6w:'pedro',t5h8z:'thiago'};
+const EU=CODES[new URLSearchParams(location.search).get('eu')]||null;
+const getEu=()=>EU;
+const euBar=()=>{const v=getEu(),p=people.find(x=>x.id===v);
+  document.getElementById('eu').innerHTML=p?`Você está como <b>${esc(p.name)}</b>`:'';
+  people.forEach(x=>{const n=document.querySelector(`#p-${x.id} .surp`);if(n)n.hidden=x.id!==v||!x.secs.length});
+};
+/* ---------- Reservas ---------- */
+const GIFT='<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 7h-2.2A3 3 0 0 0 12 3.8 3 3 0 0 0 6.2 7H4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8h1a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1Zm-7-1.5A1.5 1.5 0 1 1 14.5 7H13Zm-3.5-.5A1.5 1.5 0 0 1 11 6.5V7H9.5a1 1 0 0 1 0-2ZM11 19H7v-7h4Zm0-9H5V9h6Zm6 9h-4v-7h4Zm2-9h-6V9h6Z"/></svg>';
+/* Reservas salvas no Firebase (Firestore), projeto presentes-familinha. */
+const FS='https://firestore.googleapis.com/v1/projects/presentes-familinha/databases/(default)/documents/reservas',FK='AIzaSyB4GXKNsEIVxRyXj-Ga_gQGsFnk9I0HiaE';
+const did=id=>id.replace(/[^A-Za-z0-9_-]/g,'_');
+const store={data:{},subs:[],ok:true,
+  async load(){try{const all={};let tok='';do{const r=await fetch(`${FS}?key=${FK}&pageSize=300${tok?'&pageToken='+encodeURIComponent(tok):''}`,{cache:'no-store'});if(!r.ok)throw new Error('net');const j=await r.json();(j.documents||[]).forEach(d=>{all[d.name.split('/').pop()]={by:(d.fields&&d.fields.by&&d.fields.by.stringValue)||''}});tok=j.nextPageToken||''}while(tok);this.data=all;this.ok=true}catch(e){this.ok=false}this.emit()},
+  emit(){this.subs.forEach(f=>f(this.data))},on(f){this.subs.push(f)},
+  async reserve(id){const r=await fetch(`${FS}?documentId=${did(id)}&key=${FK}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fields:{by:{stringValue:EU},at:{integerValue:String(Date.now())}}})});
+    if(r.status===409){await this.load();throw new Error('taken')}if(!r.ok)throw new Error('net');this.data[did(id)]={by:EU};this.emit()},
+  async release(id){const r=await fetch(`${FS}/${did(id)}?key=${FK}`,{method:'DELETE'});if(!r.ok)throw new Error('net');delete this.data[did(id)];this.emit()}};
+const paint=d=>{if(!getEu())return;document.querySelectorAll('.card[data-id]').forEach(c=>{
+  const own=c.closest('.panel').id==='p-'+getEu();if(own){c.classList.remove('is-res','is-mine');c.querySelector('.rsv').innerHTML='';return}
+  const k=did(c.dataset.id),r=!!d[k],me=r&&d[k].by===EU;
+  c.classList.toggle('is-res',r);c.classList.toggle('is-mine',me);
+  c.querySelector('.rsv').innerHTML=!r?`<button type="button" class="rbtn" data-act="res">${GIFT}Reservar<span class="lg"> este presente</span></button>`
+   :me?`<p class="rnote mine">✓ Você reservou este presente</p><button type="button" class="rlink" data-act="rel">Cancelar minha reserva</button>`
+   :`<p class="rnote">Alguém já reservou este presente</p>`;
+})};
+store.on(paint);
+const dlg=document.createElement('dialog');dlg.className='rdlg';document.body.appendChild(dlg);
+let cur=null;
+const item=id=>{const c=document.querySelector(`.card[data-id="${CSS.escape(id)}"]`);return{img:c.querySelector('.ph img').getAttribute('src'),name:c.querySelector('.name').textContent,who:c.closest('.panel').querySelector('.who h2').textContent}};
+const head=it=>`<div class="rhead"><img src="${it.img}" alt=""><div><small>${esc(it.who)}</small><b>${esc(it.name)}</b></div></div>`;
+const hold=(label)=>`<button type="button" class="hold" data-hold><span class="fill"></span><span class="lbl">${label}</span></button><p class="hint">Segure o botão até a barra encher</p>`;
+const step=(n)=>{const it=item(cur.id);
+  if(cur.mode==='res'){
+    if(n===1)dlg.innerHTML=`${head(it)}<p class="kick">Passo 1 de 2</p><h3>Reservar este presente?</h3><p>Quando você reserva, todo mundo vê que este presente já tem dono e ninguém compra repetido. Não aparece quem reservou.</p><label class="chk"><input type="checkbox" id="ok1"><span>Eu vou comprar este presente (ou já comprei)</span></label><div class="racts"><button type="button" class="ghost" data-x>Voltar</button><button type="button" class="pri" id="go2" disabled>Continuar</button></div>`;
+    if(n===2)dlg.innerHTML=`${head(it)}<p class="kick">Passo 2 de 2</p><h3>Tem certeza?</h3><p>Depois de confirmar, o presente fica reservado para você.</p>${hold('Segure para reservar')}<div class="racts"><button type="button" class="ghost" data-back>Voltar</button></div>`;
+    if(n===3)dlg.innerHTML=`<div class="done">✓</div><h3>Presente reservado!</h3><p>Pronto, ninguém mais vai comprar este presente. Se mudar de ideia, volte aqui pelo seu link e toque em “Cancelar minha reserva”.</p><div class="racts"><button type="button" class="pri" data-x>Fechar</button></div>`;
+  }else{
+    if(n===1)dlg.innerHTML=`${head(it)}<h3>Cancelar sua reserva?</h3><p>O presente volta a ficar livre para outra pessoa comprar.</p>${hold('Segure para cancelar')}<div class="racts"><button type="button" class="ghost" data-x>Voltar</button></div>`;
+    if(n===3)dlg.innerHTML=`<div class="done off">↺</div><h3>Reserva cancelada</h3><p>O presente está livre de novo.</p><div class="racts"><button type="button" class="pri" data-x>Fechar</button></div>`;
+  }
+  cur.step=n;wire();
+};
+const fail=msg=>{dlg.innerHTML=`<div class="done off">!</div><h3>Não deu certo</h3><p>${msg}</p><div class="racts"><button type="button" class="pri" data-x>Fechar</button></div>`;wire()};
+const finish=async()=>{try{
+  if(cur.mode==='res')await store.reserve(cur.id);else await store.release(cur.id);
+  paint(store.data);step(3)}catch(e){fail(e.message==='taken'?'Alguém acabou de reservar este presente.':'Verifique a internet e tente de novo.')}};
+const wire=()=>{
+  dlg.querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>dlg.close());
+  dlg.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>step(cur.step-1));
+  const ok=dlg.querySelector('#ok1'),g=dlg.querySelector('#go2');
+  if(ok){ok.onchange=()=>g.disabled=!ok.checked;g.onclick=()=>step(2)}
+  const h=dlg.querySelector('[data-hold]');if(!h)return;
+  let t0=0,raf=0;const DUR=1600;
+  const tick=now=>{const p=Math.min(1,(now-t0)/DUR);h.style.setProperty('--p',p);if(p>=1){stop(false);finish();return}raf=requestAnimationFrame(tick)};
+  const start=e=>{if(e)e.preventDefault();if(t0)return;t0=performance.now();h.classList.add('on');raf=requestAnimationFrame(tick)};
+  const stop=(reset=true)=>{cancelAnimationFrame(raf);t0=0;h.classList.remove('on');if(reset)h.style.setProperty('--p',0)};
+  h.addEventListener('pointerdown',start);['pointerup','pointerleave','pointercancel'].forEach(ev=>h.addEventListener(ev,()=>stop()));
+  h.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&!e.repeat)start(e)});h.addEventListener('keyup',()=>stop());
+  h.addEventListener('contextmenu',e=>e.preventDefault());
+};
+main.addEventListener('click',async e=>{const b=e.target.closest('[data-act]');if(!b||b.disabled)return;const id=b.closest('.card').dataset.id,mode=b.dataset.act;b.disabled=true;
+  if(mode==='res'){await store.load();if(store.data[did(id)]){b.disabled=false;cur={id,mode};fail('Alguém acabou de reservar este presente.');dlg.showModal();return}}
+  b.disabled=false;cur={id,mode};step(1);dlg.showModal()});
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+if(getEu()){store.load();setInterval(()=>{if(!document.hidden&&!dlg.open)store.load()},20000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)store.load()})}euBar();
+/* ---------- Guia de boas-vindas e instalação como app ---------- */
+const UA=navigator.userAgent;
+const isIOS=/iP(hone|ad|od)/.test(UA)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const isAndroid=/Android/i.test(UA);
+const isApp=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+let installEv=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();installEv=e});
+if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
+const SHARE='<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12M7.5 7.5 12 3l4.5 4.5M7 11H5.5A1.5 1.5 0 0 0 4 12.5v7A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5v-7a1.5 1.5 0 0 0-1.5-1.5H17"/></svg>';
+const DOTS='<b class="key">•••</b>';
+const instHTML=()=>{
+    if(isIOS)return `<p class="kick">Aplicativo · opcional</p><h3>Coloque o app na tela do iPhone</h3><p>Funciona em qualquer iPhone, inclusive no iPhone Duo, aberto ou fechado.</p><ol class="how"><li><span>1</span><div>Abra este link no <b>Safari</b>. Se estiver dentro do WhatsApp, toque em <b>Abrir no Safari</b> antes.</div></li><li><span>2</span><div>Toque em ${DOTS} ou no botão <b class="key">${SHARE}</b> Compartilhar, na barra do Safari.</div></li><li><span>3</span><div>Toque em <b>Adicionar à Tela de Início</b>. Se não aparecer, toque em <b>Ver mais</b>.</div></li><li><span>4</span><div>Deixe ligado <b>Abrir como App Web</b> e toque em <b>Adicionar</b>.</div></li></ol><div class="mini"><img src="img/icone-180.png" alt=""><span>Familinha</span></div><p class="small">O ícone vermelho e verde aparece na sua tela. Abra sempre por ele.</p>`
+    else if(isAndroid)return `<p class="kick">Aplicativo · opcional</p><h3>Coloque o app na tela do celular</h3>${installEv?`<button type="button" class="pri big" id="inst">Instalar o app</button><p class="small">Se o botão não funcionar, faça pelo menu:</p>`:''}<ol class="how"><li><span>1</span><div>Abra este link no <b>Chrome</b>. Se estiver dentro do WhatsApp, toque em <b>⋮</b> e em <b>Abrir no Chrome</b>.</div></li><li><span>2</span><div>Toque em <b class="key">⋮</b> no canto de cima.</div></li><li><span>3</span><div>Toque em <b>Adicionar à tela inicial</b> e depois em <b>Instalar</b>.</div></li></ol><div class="mini"><img src="img/icone-180.png" alt=""><span>Familinha</span></div>`
+    else return `<p class="kick">Dica</p><h3>Guarde nos favoritos</h3><p>No computador, salve esta página nos favoritos para voltar fácil. No celular, abra o mesmo link para colocar o app na tela.</p>`;
+  
+};
+const guia=document.createElement('dialog');guia.className='rdlg guia';document.body.appendChild(guia);
+const gsteps=()=>{const p=people.find(x=>x.id===EU),art=p.name==='Thiago'||p.name==='Pedro'?'o':'a',list=[];
+  list.push(`<img class="qbig" src="img/av-${p.id}.jpg" alt=""><h3>Oi, ${esc(p.name)}!</h3><p>Esta é a lista de presentes de Natal da Familinha. Aqui você vê o que cada um quer ganhar e combina o seu presente sem estragar a surpresa.</p><p class="small">Este link é só seu. Não mande para ninguém.</p>`);
+  list.push(`<p class="kick">Como funciona</p><h3>Reservar um presente</h3><ol class="how"><li><span>1</span><div>Toque na foto de alguém e escolha o presente que você vai dar.</div></li><li><span>2</span><div>Toque em <em class="chipr">${GIFT}Reservar este presente</em>, marque que vai comprar e <b>segure o botão vermelho</b> até a barra encher.</div></li><li><span>3</span><div>Pronto. Para todo mundo aparece <b>Reservado</b>, e ninguém compra repetido. Ninguém sabe que foi você.</div></li></ol>`);
+  list.push(`<p class="kick">Surpresa garantida</p><h3>A sua lista fica em segredo</h3><ol class="how"><li><span>🎁</span><div>Na sua própria lista você não vê o que já foi reservado. Assim tudo continua surpresa.</div></li><li><span>↺</span><div>Mudou de ideia? Abra o presente que você reservou e toque em <b>Cancelar minha reserva</b>.</div></li></ol>`);
+  return list};
+const openGuia=(i=0)=>{const st=gsteps();i=Math.max(0,Math.min(i,st.length-1));const last=i===st.length-1;
+  guia.innerHTML=`<div class="gbody">${st[i]}</div><div class="gdots">${st.map((_,k)=>`<i class="${k===i?'on':''}"></i>`).join('')}</div><div class="racts">${i?`<button type="button" class="ghost" id="gb">Voltar</button>`:''}<button type="button" class="pri" id="gn">${last?'Começar':'Próximo'}</button></div>`;
+  const done=()=>{try{localStorage.setItem('lp-guia-'+EU+(isApp()?'-app':''),'1')}catch(e){}guia.close()};
+  const b=guia.querySelector('#gb');if(b)b.onclick=()=>openGuia(i-1);
+  guia.querySelector('#gn').onclick=()=>{if(last)done();else openGuia(i+1)};
+  if(!guia.open)guia.showModal();guia.scrollTop=0};
+/* Tutorial do aplicativo: separado do tutorial do site */
+const canApp=()=>!isApp()&&(isIOS||isAndroid);
+const openApp=()=>{guia.innerHTML=`<div class="gbody">${instHTML()}</div><div class="racts"><button type="button" class="pri" id="gok">Entendi</button></div>`;
+  guia.querySelector('#gok').onclick=()=>guia.close();
+  const ins=guia.querySelector('#inst');if(ins)ins.onclick=async()=>{installEv.prompt();const r=await installEv.userChoice;installEv=null;if(r.outcome==='accepted'){hideBan();guia.close()}};
+  if(!guia.open)guia.showModal();guia.scrollTop=0};
+const hideBan=()=>{try{localStorage.setItem('lp-ban-'+EU,'1')}catch(e){}const x=document.getElementById('appban');if(x)x.remove()};
+if(EU){let seen=null;try{seen=localStorage.getItem('lp-guia-'+EU+(isApp()?'-app':''))}catch(e){}
+  if(!seen)setTimeout(()=>openGuia(0),400);
+  const h=document.getElementById('eu');h.insertAdjacentHTML('beforeend',` · <button type="button" id="ajuda">Como funciona?</button>${canApp()?` · <button type="button" id="ajapp">Usar como app</button>`:''}`);
+  document.getElementById('ajuda').onclick=()=>openGuia(0);const aa=document.getElementById('ajapp');if(aa)aa.onclick=openApp;
+  let banSeen=null;try{banSeen=localStorage.getItem('lp-ban-'+EU)}catch(e){}
+  if(canApp()&&!banSeen){h.insertAdjacentHTML('afterend',`<div class="appban" id="appban"><img src="img/icone-180.png" alt=""><div><b>Quer usar como aplicativo?</b><span>Coloque o ícone na tela do celular. É opcional.</span></div><button type="button" class="pri" id="banver">Ver como</button><button type="button" class="banx" id="banx" aria-label="Fechar">×</button></div>`);
+    document.getElementById('banver').onclick=openApp;document.getElementById('banx').onclick=hideBan;}}
+
 }
 
 </script>
