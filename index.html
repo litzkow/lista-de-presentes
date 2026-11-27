@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lista de Natal do Thiago</title>
+<title>Presentes da Familinha</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -112,7 +112,7 @@ nav a.back{background:transparent;border-color:transparent;color:var(--pine);fon
   <div class="wrap">
     <div>
       <p class="kicker">Feliz Natal</p>
-      <h1>Lista de presentes da família</h1>
+      <h1>Presentes da Familinha</h1>
     </div>
     <div class="orn" aria-hidden="true">
       <svg viewBox="0 0 420 300">
@@ -134,7 +134,7 @@ nav a.back{background:transparent;border-color:transparent;color:var(--pine);fon
 <section id="home" class="home"></section>
 <nav aria-label="Pessoas"><div class="wrap" id="nav" role="tablist"></div></nav>
 <main class="wrap" id="lista"></main>
-<footer><div class="garland" aria-hidden="true"></div><div class="wrap"><b>Feliz Natal e obrigado!</b><span>Com carinho, da família</span></div></footer>
+<footer><div class="garland" aria-hidden="true"></div><div class="wrap"><b>Feliz Natal e obrigado!</b></div></footer>
 <script>
 {
 const az=u=>[{t:'Comprar na Amazon',u}];
@@ -241,7 +241,7 @@ const show=()=>{
   people.forEach(p=>{document.getElementById('p-'+p.id).hidden=p.id!==cur});
   nav.querySelectorAll('a[role=tab]').forEach(a=>a.setAttribute('aria-selected',a.getAttribute('href')==='#'+cur?'true':'false'));
   const t=cur?people.find(p=>p.id===cur):null;
-  document.title=t?`Presentes ${art(t)} ${t.name}`:'Lista de presentes da família';
+  document.title=t?`Presentes ${art(t)} ${t.name}`:'Presentes da Familinha';
 };
 const go=e=>{const a=e.target.closest('a');if(!a||!a.getAttribute('href').startsWith('#'))return;e.preventDefault();const h=a.getAttribute('href');history.pushState(null,'',h==='#'?location.pathname:h);show();window.scrollTo({top:h==='#'?0:document.querySelector('.garland').offsetTop,behavior:'smooth'})};
 nav.addEventListener('click',go);home.addEventListener('click',go);
